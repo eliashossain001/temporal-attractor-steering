@@ -1,0 +1,5 @@
+model,hf_id,n,OPR,Recovery,PTC_rate,EG_logprob,EG_prob
+llama-3.1-8b,meta-llama/Llama-3.1-8B,8746,0.5398,0.5051,0.0733,0.1791,0.0489
+mistral-7b-v0.3,mistralai/Mistral-7B-v0.3,8746,0.5405,0.497,0.0598,0.1481,0.0403
+qwen-2.5-1.5b,Qwen/Qwen2.5-1.5B,8746,0.5297,0.4752,0.0239,0.1805,0.0148
+qwen-2.5-7b,Qwen/Qwen2.5-7B,8746,0.5436,0.4763,0.0364,0.09,0.0177

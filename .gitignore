@@ -1,0 +1,27 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Heavy run artifacts (re-created by the pipeline; results/ holds the
+# committed JSON metrics).
+runs/
+*.log
+*.pt
+*.pkl
+
+# Local HF caches (only if redirected here via HF_HOME)
+hf_cache/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store

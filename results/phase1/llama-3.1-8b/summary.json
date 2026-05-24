@@ -1,0 +1,86 @@
+{
+  "model": "llama-3.1-8b",
+  "hf_id": "meta-llama/Llama-3.1-8B",
+  "data_dir": "data/large",
+  "n_instances": 8746,
+  "prompting": {
+    "answer_suffix": "\nAnswer:",
+    "candidate_prefix": " "
+  },
+  "overall": {
+    "n": 8746,
+    "opr": 0.5397896181111366,
+    "recovery_rate": 0.505145209238509,
+    "ptc_rate": 0.07329064715298422,
+    "elicitation_gap_logprob": 0.17910292164203714,
+    "elicitation_gap_prob": 0.04891443405351389
+  },
+  "by_relation": {
+    "P6": {
+      "n": 3583,
+      "opr": 0.495394920457717,
+      "recovery_rate": 0.5445157689087357,
+      "ptc_rate": 0.06391292213229137,
+      "elicitation_gap_logprob": 0.1716737954579229,
+      "elicitation_gap_prob": 0.0483530917994919
+    },
+    "P35": {
+      "n": 183,
+      "opr": 0.46994535519125685,
+      "recovery_rate": 0.7431693989071039,
+      "ptc_rate": 0.23497267759562843,
+      "elicitation_gap_logprob": 0.543040351202884,
+      "elicitation_gap_prob": 0.23873323044485337
+    },
+    "P169": {
+      "n": 208,
+      "opr": 0.5336538461538461,
+      "recovery_rate": 0.5673076923076923,
+      "ptc_rate": 0.1201923076923077,
+      "elicitation_gap_logprob": 0.2572214277539634,
+      "elicitation_gap_prob": 0.09514128825196247
+    },
+    "P286": {
+      "n": 2391,
+      "opr": 0.6060225846925973,
+      "recovery_rate": 0.43329150982852366,
+      "ptc_rate": 0.07570054370556252,
+      "elicitation_gap_logprob": 0.12730821873195572,
+      "elicitation_gap_prob": 0.03362792126753965
+    },
+    "P488": {
+      "n": 2381,
+      "opr": 0.5459890802183957,
+      "recovery_rate": 0.49433011339773203,
+      "ptc_rate": 0.06845863082738345,
+      "elicitation_gap_logprob": 0.20749876158104189,
+      "elicitation_gap_prob": 0.046482395395190834
+    }
+  },
+  "by_domain": {
+    "politics": {
+      "n": 3766,
+      "opr": 0.49415825809877856,
+      "recovery_rate": 0.5541688794476899,
+      "ptc_rate": 0.07222517259691981,
+      "elicitation_gap_logprob": 0.18971948842163186,
+      "elicitation_gap_prob": 0.05760417129288041
+    },
+    "corporate_leadership": {
+      "n": 2589,
+      "opr": 0.5449980687524141,
+      "recovery_rate": 0.500193124758594,
+      "ptc_rate": 0.07261490923136346,
+      "elicitation_gap_logprob": 0.2114934755879819,
+      "elicitation_gap_prob": 0.05039164596074066
+    },
+    "sports": {
+      "n": 2391,
+      "opr": 0.6060225846925973,
+      "recovery_rate": 0.43329150982852366,
+      "ptc_rate": 0.07570054370556252,
+      "elicitation_gap_logprob": 0.12730821873195572,
+      "elicitation_gap_prob": 0.03362792126753965
+    }
+  }
+}

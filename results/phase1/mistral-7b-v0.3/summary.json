@@ -1,0 +1,86 @@
+{
+  "model": "mistral-7b-v0.3",
+  "hf_id": "mistralai/Mistral-7B-v0.3",
+  "data_dir": "data/large",
+  "n_instances": 8746,
+  "prompting": {
+    "answer_suffix": "\nAnswer:",
+    "candidate_prefix": " "
+  },
+  "overall": {
+    "n": 8746,
+    "opr": 0.5404756460096044,
+    "recovery_rate": 0.49702721243997255,
+    "ptc_rate": 0.05979876514978276,
+    "elicitation_gap_logprob": 0.148083892706648,
+    "elicitation_gap_prob": 0.04029730912497374
+  },
+  "by_relation": {
+    "P6": {
+      "n": 3583,
+      "opr": 0.504605079542283,
+      "recovery_rate": 0.5246999720904271,
+      "ptc_rate": 0.052749092938878035,
+      "elicitation_gap_logprob": 0.17652058106734878,
+      "elicitation_gap_prob": 0.043153772380183926
+    },
+    "P35": {
+      "n": 183,
+      "opr": 0.546448087431694,
+      "recovery_rate": 0.6721311475409836,
+      "ptc_rate": 0.2185792349726776,
+      "elicitation_gap_logprob": 0.43595993850918835,
+      "elicitation_gap_prob": 0.19357497606239887
+    },
+    "P169": {
+      "n": 208,
+      "opr": 0.5096153846153846,
+      "recovery_rate": 0.5769230769230769,
+      "ptc_rate": 0.11057692307692307,
+      "elicitation_gap_logprob": 0.14695367322678343,
+      "elicitation_gap_prob": 0.06779633637960057
+    },
+    "P286": {
+      "n": 2391,
+      "opr": 0.6148055207026348,
+      "recovery_rate": 0.42785445420326224,
+      "ptc_rate": 0.06566290255123379,
+      "elicitation_gap_logprob": 0.11043056091775141,
+      "elicitation_gap_prob": 0.030619771209819395
+    },
+    "P488": {
+      "n": 2381,
+      "opr": 0.5220495590088198,
+      "recovery_rate": 0.504409911801764,
+      "ptc_rate": 0.04787904241915162,
+      "elicitation_gap_logprob": 0.12107600996024225,
+      "elicitation_gap_prob": 0.031534047719347855
+    }
+  },
+  "by_domain": {
+    "politics": {
+      "n": 3766,
+      "opr": 0.5066383430695698,
+      "recovery_rate": 0.5318640467339352,
+      "ptc_rate": 0.060807222517259694,
+      "elicitation_gap_logprob": 0.18912743247782585,
+      "elicitation_gap_prob": 0.05046314048263887
+    },
+    "corporate_leadership": {
+      "n": 2589,
+      "opr": 0.5210505986867516,
+      "recovery_rate": 0.5102356122054847,
+      "ptc_rate": 0.052916183854770184,
+      "elicitation_gap_logprob": 0.12315501882831506,
+      "elicitation_gap_prob": 0.03444735634867678
+    },
+    "sports": {
+      "n": 2391,
+      "opr": 0.6148055207026348,
+      "recovery_rate": 0.42785445420326224,
+      "ptc_rate": 0.06566290255123379,
+      "elicitation_gap_logprob": 0.11043056091775141,
+      "elicitation_gap_prob": 0.030619771209819395
+    }
+  }
+}
