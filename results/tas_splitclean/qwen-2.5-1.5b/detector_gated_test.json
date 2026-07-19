@@ -1,0 +1,76 @@
+{
+  "model": "qwen-2.5-1.5b",
+  "model_revision": "8faed761d45a263340a0528343f099c05c9a4323",
+  "layer": 23,
+  "detector_test": {
+    "auprc_true_base": 0.027513492498331887,
+    "auroc": 0.4665110153256705,
+    "brier": 0.02358895127665811,
+    "n_test_pos": 32,
+    "n_test_neg": 1305
+  },
+  "operating_points": {
+    "tau_0.15": {
+      "tau": 0.15,
+      "precision": 0.14285714285714285,
+      "recall": 0.03125,
+      "fpr": 0.004597701149425287,
+      "fraction_steered_test": 0.005235602094240838,
+      "fraction_steered_val": 0.011485451761102604,
+      "confusion": {
+        "tp": 1,
+        "fp": 6,
+        "fn": 31,
+        "tn": 1299
+      }
+    },
+    "tau_0.2": {
+      "tau": 0.2,
+      "precision": 0.2,
+      "recall": 0.03125,
+      "fpr": 0.0030651340996168583,
+      "fraction_steered_test": 0.0037397157816005983,
+      "fraction_steered_val": 0.011485451761102604,
+      "confusion": {
+        "tp": 1,
+        "fp": 4,
+        "fn": 31,
+        "tn": 1301
+      }
+    },
+    "tau_0.3": {
+      "tau": 0.3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "fpr": 0.0,
+      "fraction_steered_test": 0.0,
+      "fraction_steered_val": 0.0,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 32,
+        "tn": 1305
+      }
+    }
+  },
+  "detector_gated_tas": {
+    "tau_0.15": {
+      "recovery": 0.03125,
+      "pa": 1.0,
+      "fraction_steered_ptc": 0.03125,
+      "fraction_steered_ctrl": 0.005
+    },
+    "tau_0.2": {
+      "recovery": 0.03125,
+      "pa": 1.0,
+      "fraction_steered_ptc": 0.03125,
+      "fraction_steered_ctrl": 0.005
+    },
+    "tau_0.3": {
+      "recovery": 0.0,
+      "pa": 1.0,
+      "fraction_steered_ptc": 0.0,
+      "fraction_steered_ctrl": 0.0
+    }
+  }
+}

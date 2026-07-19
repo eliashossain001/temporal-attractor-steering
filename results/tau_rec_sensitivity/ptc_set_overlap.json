@@ -1,0 +1,150 @@
+{
+  "qwen-2.5-1.5b": {
+    "-2.0": {
+      "n": 71,
+      "retained_from_primary": 71,
+      "added": 0,
+      "removed": 30,
+      "jaccard": 0.703
+    },
+    "-2.5": {
+      "n": 87,
+      "retained_from_primary": 87,
+      "added": 0,
+      "removed": 14,
+      "jaccard": 0.8614
+    },
+    "-3.0": {
+      "n": 101,
+      "retained_from_primary": 101,
+      "added": 0,
+      "removed": 0,
+      "jaccard": 1.0
+    },
+    "-3.5": {
+      "n": 118,
+      "retained_from_primary": 101,
+      "added": 17,
+      "removed": 0,
+      "jaccard": 0.8559
+    },
+    "-4.0": {
+      "n": 142,
+      "retained_from_primary": 101,
+      "added": 41,
+      "removed": 0,
+      "jaccard": 0.7113
+    }
+  },
+  "qwen-2.5-7b": {
+    "-2.0": {
+      "n": 228,
+      "retained_from_primary": 228,
+      "added": 0,
+      "removed": 20,
+      "jaccard": 0.9194
+    },
+    "-2.5": {
+      "n": 237,
+      "retained_from_primary": 237,
+      "added": 0,
+      "removed": 11,
+      "jaccard": 0.9556
+    },
+    "-3.0": {
+      "n": 248,
+      "retained_from_primary": 248,
+      "added": 0,
+      "removed": 0,
+      "jaccard": 1.0
+    },
+    "-3.5": {
+      "n": 263,
+      "retained_from_primary": 248,
+      "added": 15,
+      "removed": 0,
+      "jaccard": 0.943
+    },
+    "-4.0": {
+      "n": 274,
+      "retained_from_primary": 248,
+      "added": 26,
+      "removed": 0,
+      "jaccard": 0.9051
+    }
+  },
+  "mistral-7b-v0.3": {
+    "-2.0": {
+      "n": 442,
+      "retained_from_primary": 442,
+      "added": 0,
+      "removed": 39,
+      "jaccard": 0.9189
+    },
+    "-2.5": {
+      "n": 462,
+      "retained_from_primary": 462,
+      "added": 0,
+      "removed": 19,
+      "jaccard": 0.9605
+    },
+    "-3.0": {
+      "n": 481,
+      "retained_from_primary": 481,
+      "added": 0,
+      "removed": 0,
+      "jaccard": 1.0
+    },
+    "-3.5": {
+      "n": 498,
+      "retained_from_primary": 481,
+      "added": 17,
+      "removed": 0,
+      "jaccard": 0.9659
+    },
+    "-4.0": {
+      "n": 508,
+      "retained_from_primary": 481,
+      "added": 27,
+      "removed": 0,
+      "jaccard": 0.9469
+    }
+  },
+  "llama-3.1-8b": {
+    "-2.0": {
+      "n": 555,
+      "retained_from_primary": 555,
+      "added": 0,
+      "removed": 41,
+      "jaccard": 0.9312
+    },
+    "-2.5": {
+      "n": 578,
+      "retained_from_primary": 578,
+      "added": 0,
+      "removed": 18,
+      "jaccard": 0.9698
+    },
+    "-3.0": {
+      "n": 596,
+      "retained_from_primary": 596,
+      "added": 0,
+      "removed": 0,
+      "jaccard": 1.0
+    },
+    "-3.5": {
+      "n": 609,
+      "retained_from_primary": 596,
+      "added": 13,
+      "removed": 0,
+      "jaccard": 0.9787
+    },
+    "-4.0": {
+      "n": 615,
+      "retained_from_primary": 596,
+      "added": 19,
+      "removed": 0,
+      "jaccard": 0.9691
+    }
+  }
+}

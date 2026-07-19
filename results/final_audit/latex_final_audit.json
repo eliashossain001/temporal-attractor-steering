@@ -1,0 +1,33 @@
+{
+  "steps": {
+    "latex_reference_audit": {
+      "clean": true,
+      "returncode": 0
+    },
+    "numerical_audit": {
+      "stale_clean": true,
+      "no_missing": true,
+      "log": [
+        "Manifest + numerical audit written to results/final_audit/",
+        "Headline claims: 7 present, 0 MISSING",
+        "Stale markers: 0"
+      ]
+    },
+    "split_validation": {
+      "returncode": 1,
+      "status": "skipped: package not installed (run `pip install -e .`)",
+      "tail": [
+        "  File \"/home/elias/elias_projects/tas_framework/scripts/validate_splits.py\", line 24, in <module>",
+        "    from temporal_conflict import splits as S",
+        "ModuleNotFoundError: No module named 'temporal_conflict'"
+      ]
+    },
+    "artifact_existence": {
+      "missing": []
+    },
+    "placeholder_brackets": {
+      "present": false
+    }
+  },
+  "blockers": 0
+}

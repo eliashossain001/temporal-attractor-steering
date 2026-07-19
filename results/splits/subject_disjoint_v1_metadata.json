@@ -1,0 +1,122 @@
+{
+  "purpose": "Authoritative subject-disjoint split for detector, TAS, ITI, alpha-selection, and paired testing (Bucket 4).",
+  "split_version": "v1",
+  "algorithm": "group-by-subject_qid; stratify subjects by rarest relation; per-stratum seeded shuffle; largest-remainder allocation",
+  "grouping_unit": "subject_qid",
+  "proportions": {
+    "train": 0.6,
+    "validation": 0.15,
+    "calibration": 0.1,
+    "test": 0.15
+  },
+  "seed": 20260712,
+  "benchmark_path": "/home/elias/elias_projects/tas_framework/data/large/combined_all.jsonl",
+  "benchmark_sha256": "ad75be4ed3cfefc474e4cf743814f8dd31fee1088531e3fc57c26ab8698fcf0b",
+  "benchmark_record_count": 8746,
+  "git_commit": "4197221f981b8aa85db7f29e17369a8ea8b9a94b",
+  "generated_utc": "2026-07-12T01:11:26.373785+00:00",
+  "record_id_scheme": "relation:subject:old->new@t_update",
+  "roles": {
+    "train": "detector fit; TAS & ITI direction construction",
+    "validation": "alpha / operating-point selection",
+    "calibration": "isotonic calibration; detector threshold selection",
+    "test": "final detector, TAS, and paired TAS-vs-ITI metrics"
+  },
+  "records_by_split": {
+    "train": 5240,
+    "validation": 1306,
+    "test": 1337,
+    "calibration": 863
+  },
+  "unique_subjects_by_split": {
+    "train": 3270,
+    "validation": 822,
+    "test": 818,
+    "calibration": 541
+  },
+  "relation_counts_by_split": {
+    "train": {
+      "P6": 2158,
+      "P35": 107,
+      "P169": 121,
+      "P286": 1473,
+      "P488": 1381
+    },
+    "validation": {
+      "P6": 528,
+      "P35": 34,
+      "P169": 31,
+      "P286": 333,
+      "P488": 380
+    },
+    "test": {
+      "P6": 532,
+      "P35": 23,
+      "P169": 33,
+      "P286": 354,
+      "P488": 395
+    },
+    "calibration": {
+      "P6": 365,
+      "P35": 19,
+      "P169": 23,
+      "P286": 231,
+      "P488": 225
+    }
+  },
+  "ptc_counts_by_model_split": {
+    "qwen-2.5-1.5b": {
+      "train": 123,
+      "validation": 35,
+      "calibration": 19,
+      "test": 32
+    },
+    "qwen-2.5-7b": {
+      "train": 189,
+      "validation": 58,
+      "calibration": 32,
+      "test": 39
+    },
+    "mistral-7b-v0.3": {
+      "train": 311,
+      "validation": 83,
+      "calibration": 59,
+      "test": 71
+    },
+    "llama-3.1-8b": {
+      "train": 399,
+      "validation": 91,
+      "calibration": 65,
+      "test": 87
+    }
+  },
+  "ptc_rate_by_model_split": {
+    "qwen-2.5-1.5b": {
+      "train": 0.0235,
+      "validation": 0.0268,
+      "calibration": 0.022,
+      "test": 0.0239
+    },
+    "qwen-2.5-7b": {
+      "train": 0.0361,
+      "validation": 0.0444,
+      "calibration": 0.0371,
+      "test": 0.0292
+    },
+    "mistral-7b-v0.3": {
+      "train": 0.0594,
+      "validation": 0.0636,
+      "calibration": 0.0684,
+      "test": 0.0531
+    },
+    "llama-3.1-8b": {
+      "train": 0.0761,
+      "validation": 0.0697,
+      "calibration": 0.0753,
+      "test": 0.0651
+    }
+  },
+  "min_pos_per_heldout_required": 15,
+  "n_control_standard": 200,
+  "control_rationale": "Standardized clean-control count = 200 for both validation and test, replacing the OracleTASStage(200)/TASEvaluationStage(500) inconsistency. 200 is feasible for every model (tightest is qwen-2.5-1.5b with >=341 clean controls in test) and is the smaller of the two legacy values, avoiding overstated precision. Controls are non-PTC AND knowledge-present, drawn only from validation/test, identical for TAS and ITI within a model."
+}

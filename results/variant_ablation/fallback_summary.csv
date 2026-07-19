@@ -1,0 +1,43 @@
+[
+  {
+    "model": "qwen-2.5-1.5b",
+    "min_support": 10,
+    "relations_fallback": [
+      "P35",
+      "P169"
+    ],
+    "domains_fallback": [],
+    "v1_test_fallback": 0,
+    "v2_test_fallback": 2,
+    "v3_test_fallback": 0
+  },
+  {
+    "model": "qwen-2.5-7b",
+    "min_support": 10,
+    "relations_fallback": [
+      "P169"
+    ],
+    "domains_fallback": [],
+    "v1_test_fallback": 0,
+    "v2_test_fallback": 1,
+    "v3_test_fallback": 0
+  },
+  {
+    "model": "mistral-7b-v0.3",
+    "min_support": 10,
+    "relations_fallback": [],
+    "domains_fallback": [],
+    "v1_test_fallback": 0,
+    "v2_test_fallback": 0,
+    "v3_test_fallback": 0
+  },
+  {
+    "model": "llama-3.1-8b",
+    "min_support": 10,
+    "relations_fallback": [],
+    "domains_fallback": [],
+    "v1_test_fallback": 0,
+    "v2_test_fallback": 0,
+    "v3_test_fallback": 0
+  }
+]

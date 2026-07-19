@@ -1,0 +1,138 @@
+{
+  "recovery_v2_vs_v1": {
+    "qwen-2.5-1.5b": {
+      "n": 32,
+      "diff": 0.0938,
+      "v2_wins": 5,
+      "other_wins": 2,
+      "p_raw": 0.453125,
+      "p_holm": 1.0
+    },
+    "qwen-2.5-7b": {
+      "n": 39,
+      "diff": -0.0769,
+      "v2_wins": 1,
+      "other_wins": 4,
+      "p_raw": 0.375,
+      "p_holm": 1.0
+    },
+    "mistral-7b-v0.3": {
+      "n": 71,
+      "diff": -0.0704,
+      "v2_wins": 2,
+      "other_wins": 7,
+      "p_raw": 0.1796875,
+      "p_holm": 0.71875
+    },
+    "llama-3.1-8b": {
+      "n": 87,
+      "diff": 0.0115,
+      "v2_wins": 4,
+      "other_wins": 3,
+      "p_raw": 1.0,
+      "p_holm": 1.0
+    }
+  },
+  "recovery_v2_vs_v3": {
+    "qwen-2.5-1.5b": {
+      "n": 32,
+      "diff": 0.0312,
+      "v2_wins": 1,
+      "other_wins": 0,
+      "p_raw": 1.0,
+      "p_holm": 1.0
+    },
+    "qwen-2.5-7b": {
+      "n": 39,
+      "diff": -0.0256,
+      "v2_wins": 0,
+      "other_wins": 1,
+      "p_raw": 1.0,
+      "p_holm": 1.0
+    },
+    "mistral-7b-v0.3": {
+      "n": 71,
+      "diff": 0.0141,
+      "v2_wins": 1,
+      "other_wins": 0,
+      "p_raw": 1.0,
+      "p_holm": 1.0
+    },
+    "llama-3.1-8b": {
+      "n": 87,
+      "diff": -0.0115,
+      "v2_wins": 0,
+      "other_wins": 1,
+      "p_raw": 1.0,
+      "p_holm": 1.0
+    }
+  },
+  "pa_v2_vs_v1": {
+    "qwen-2.5-1.5b": {
+      "n": 200,
+      "diff": -0.12,
+      "v2_wins": 2,
+      "other_wins": 26,
+      "p_raw": 3.032386302947998e-06,
+      "p_holm": 1.2129545211791992e-05
+    },
+    "qwen-2.5-7b": {
+      "n": 200,
+      "diff": -0.03,
+      "v2_wins": 4,
+      "other_wins": 10,
+      "p_raw": 0.1795654296875,
+      "p_holm": 0.5386962890625
+    },
+    "mistral-7b-v0.3": {
+      "n": 200,
+      "diff": 0.02,
+      "v2_wins": 11,
+      "other_wins": 7,
+      "p_raw": 0.480682373046875,
+      "p_holm": 0.96136474609375
+    },
+    "llama-3.1-8b": {
+      "n": 200,
+      "diff": -0.005,
+      "v2_wins": 4,
+      "other_wins": 5,
+      "p_raw": 1.0,
+      "p_holm": 1.0
+    }
+  },
+  "pa_v2_vs_v3": {
+    "qwen-2.5-1.5b": {
+      "n": 200,
+      "diff": 0.005,
+      "v2_wins": 1,
+      "other_wins": 0,
+      "p_raw": 1.0,
+      "p_holm": 1.0
+    },
+    "qwen-2.5-7b": {
+      "n": 200,
+      "diff": -0.005,
+      "v2_wins": 0,
+      "other_wins": 1,
+      "p_raw": 1.0,
+      "p_holm": 1.0
+    },
+    "mistral-7b-v0.3": {
+      "n": 200,
+      "diff": 0.0,
+      "v2_wins": 0,
+      "other_wins": 0,
+      "p_raw": 1.0,
+      "p_holm": 1.0
+    },
+    "llama-3.1-8b": {
+      "n": 200,
+      "diff": -0.005,
+      "v2_wins": 0,
+      "other_wins": 1,
+      "p_raw": 1.0,
+      "p_holm": 1.0
+    }
+  }
+}

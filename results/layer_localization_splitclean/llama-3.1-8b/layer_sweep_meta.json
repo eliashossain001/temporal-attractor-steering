@@ -1,0 +1,17 @@
+{
+  "model": "llama-3.1-8b",
+  "ell_star": 31,
+  "alpha": 6.0,
+  "eval_layers": [
+    3,
+    21,
+    23,
+    31
+  ],
+  "plateau05": [
+    23,
+    31
+  ],
+  "runtime_sec": 134.3,
+  "device": "cuda:0"
+}

@@ -1,0 +1,33 @@
+{
+  "model": "mistral-7b-v0.3",
+  "model_revision": "caa1feb0e54d415e2df31207e5f4e273e33509b1",
+  "layer": 30,
+  "split_manifest_sha256": "ad75be4ed3cfefc474e4cf743814f8dd31fee1088531e3fc57c26ab8698fcf0b",
+  "n_test_ptc": 71,
+  "n_test_ctrl": 200,
+  "min_support": 10,
+  "variants": {
+    "v1": {
+      "alpha": 8.0,
+      "recovery": 0.39436619718309857,
+      "pa": 0.83,
+      "J": 0.22436619718309853,
+      "test_ptc_fallback": 0
+    },
+    "v2": {
+      "alpha": 4.0,
+      "recovery": 0.323943661971831,
+      "pa": 0.85,
+      "J": 0.17394366197183098,
+      "test_ptc_fallback": 0
+    },
+    "v3": {
+      "alpha": 4.0,
+      "recovery": 0.30985915492957744,
+      "pa": 0.85,
+      "J": 0.15985915492957742,
+      "test_ptc_fallback": 0
+    }
+  },
+  "runtime_sec": 546.1
+}

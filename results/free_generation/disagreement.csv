@@ -1,0 +1,9 @@
+model,method,n,cand_unknown
+qwen-2.5-1.5b,standard,32,32
+qwen-2.5-1.5b,date_prefix,32,32
+qwen-2.5-7b,standard,39,39
+qwen-2.5-7b,date_prefix,39,39
+mistral-7b-v0.3,standard,71,71
+mistral-7b-v0.3,date_prefix,71,71
+llama-3.1-8b,standard,87,87
+llama-3.1-8b,date_prefix,87,87

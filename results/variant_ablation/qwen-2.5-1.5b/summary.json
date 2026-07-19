@@ -1,0 +1,33 @@
+{
+  "model": "qwen-2.5-1.5b",
+  "model_revision": "8faed761d45a263340a0528343f099c05c9a4323",
+  "layer": 23,
+  "split_manifest_sha256": "ad75be4ed3cfefc474e4cf743814f8dd31fee1088531e3fc57c26ab8698fcf0b",
+  "n_test_ptc": 32,
+  "n_test_ctrl": 200,
+  "min_support": 10,
+  "variants": {
+    "v1": {
+      "alpha": 1.0,
+      "recovery": 0.375,
+      "pa": 0.94,
+      "J": 0.31499999999999995,
+      "test_ptc_fallback": 0
+    },
+    "v2": {
+      "alpha": 2.0,
+      "recovery": 0.46875,
+      "pa": 0.82,
+      "J": 0.28874999999999995,
+      "test_ptc_fallback": 2
+    },
+    "v3": {
+      "alpha": 2.0,
+      "recovery": 0.4375,
+      "pa": 0.815,
+      "J": 0.25249999999999995,
+      "test_ptc_fallback": 0
+    }
+  },
+  "runtime_sec": 309.4
+}

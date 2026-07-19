@@ -1,0 +1,38 @@
+{
+  "v1": {
+    "alpha": 1.0,
+    "val_recovery": 0.4,
+    "val_pa": 0.92,
+    "val_J": 0.32000000000000006,
+    "tie_break": {
+      "tied_alphas": [
+        1.0
+      ],
+      "rule": "unique"
+    }
+  },
+  "v2": {
+    "alpha": 2.0,
+    "val_recovery": 0.45714285714285713,
+    "val_pa": 0.815,
+    "val_J": 0.2721428571428571,
+    "tie_break": {
+      "tied_alphas": [
+        2.0
+      ],
+      "rule": "unique"
+    }
+  },
+  "v3": {
+    "alpha": 2.0,
+    "val_recovery": 0.45714285714285713,
+    "val_pa": 0.8,
+    "val_J": 0.2571428571428572,
+    "tie_break": {
+      "tied_alphas": [
+        2.0
+      ],
+      "rule": "unique"
+    }
+  }
+}

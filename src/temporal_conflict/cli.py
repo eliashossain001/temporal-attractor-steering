@@ -79,6 +79,39 @@ def cmd_eval(args: argparse.Namespace) -> None:
     stage.run(force=args.force)
 
 
+def cmd_baselines(args: argparse.Namespace) -> None:
+    from temporal_conflict.config import ProjectConfig
+    from temporal_conflict.baselines.run import run_baselines
+
+    cfg = ProjectConfig.from_yaml(args.config)
+    run_baselines(
+        model_spec=cfg.get_model(args.model),
+        prompting=cfg.prompting,
+        screening_path=Path(args.screening),
+        data_dir=Path(args.data),
+        out_dir=Path(args.out_dir),
+        device_map=args.device_map,
+        control_size=args.control_size,
+        limit=args.limit,
+        run_prompts=not args.no_prompts,
+        steering_vectors_path=(
+            Path(args.steering_vectors) if args.steering_vectors else None
+        ),
+        afr_path=Path(args.afr) if args.afr else None,
+        alpha=args.alpha,
+        null_layer=args.null_layer,
+    )
+
+
+def cmd_stats(args: argparse.Namespace) -> None:
+    from temporal_conflict.analysis.stats import run_stats, markdown_table
+
+    stats = run_stats(args.results_tas, args.out)
+    if args.table:
+        Path(args.table).write_text(markdown_table(stats))
+        print(f"Wrote {args.table}")
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="temporal-conflict",
@@ -125,6 +158,42 @@ def build_parser() -> argparse.ArgumentParser:
         choices=["global", "relation", "domain"],
     )
     p_eval.set_defaults(func=cmd_eval)
+
+    # --- prompt baselines (WP-A) + steering controls (WP-B) ---
+    p_base = sub.add_parser(
+        "baselines", help="Prompt baselines + steering-control ablations")
+    p_base.add_argument("--model", required=True)
+    p_base.add_argument("--config", default="configs/models.yaml")
+    p_base.add_argument("--data", default="data/large",
+                        help="Directory of *.jsonl PTC instances")
+    p_base.add_argument("--screening", required=True,
+                        help="per_instance.jsonl from Phase 1 for this model")
+    p_base.add_argument("--out-dir", required=True)
+    p_base.add_argument("--device-map", default="auto")
+    p_base.add_argument("--control-size", type=int, default=500)
+    p_base.add_argument("--limit", type=int, default=None,
+                        help="Cap PTC/control subsets (smoke testing)")
+    p_base.add_argument("--no-prompts", action="store_true",
+                        help="Skip WP-A prompt baselines (controls only)")
+    p_base.add_argument("--steering-vectors", default=None,
+                        help="steering_vectors_v2.pt (enables WP-B controls)")
+    p_base.add_argument("--afr", default=None,
+                        help="afr_profile.json (supplies ell*)")
+    p_base.add_argument("--alpha", type=float, default=None,
+                        help="Steering scale for WP-B; defaults to oracle alpha*")
+    p_base.add_argument("--null-layer", type=int, default=None,
+                        help="Wrong-layer control layer; defaults to ell*//8")
+    p_base.set_defaults(func=cmd_baselines)
+
+    # --- reproducible bootstrap CIs + paired significance (WP-C) ---
+    p_stats = sub.add_parser(
+        "stats", help="Post-hoc bootstrap CIs + paired McNemar (no model)")
+    p_stats.add_argument("--results-tas", default="results/tas",
+                         help="Dir with <model>/tas_eval_tau*.json")
+    p_stats.add_argument("--out", default="results/tas/_stats/bootstrap_stats.json")
+    p_stats.add_argument("--table", default=None,
+                         help="Optional markdown table output path")
+    p_stats.set_defaults(func=cmd_stats)
 
     return p
 

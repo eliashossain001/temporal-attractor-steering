@@ -1,0 +1,20 @@
+{
+  "bib_2026_entries_verified": {
+    "kang2026model": {"real": true, "id": "arXiv:2512.04748", "venue": "AAAI-26", "cited": true, "relevant": true},
+    "li2026costom": {"real": true, "id": "arXiv:2604.10031", "venue": "ACL 2026 Main (Best Paper)", "cited": true, "relevant": true},
+    "dey2026temporal": {"real": true, "id": "arXiv:2603.15892", "venue": "ECIR 2026", "cited": true, "relevant": true, "note": "could upgrade to @inproceedings ECIR"},
+    "pham2026knowledge": {"real": true, "id": "arXiv:2601.09445", "venue": "NeuSymBridge@AAAI-26 workshop", "cited": true, "relevant": true}
+  },
+  "reviewer_suggestions": {
+    "xie_knowledge_conflicts": {"found": true, "paper": "Adaptive Chameleon or Stubborn Sloth", "id": "arXiv:2305.13300", "venue": "ICLR 2024", "decision": "recommend_add", "placement": "Related Work: Knowledge Conflicts"},
+    "kortukov_context_memory": {"found": true, "paper": "Studying LLM Behaviors Under Context-Memory Conflicts With Real Documents", "id": "arXiv:2404.16032", "venue": "COLM 2024", "decision": "optional", "placement": "future work / RAG framing"},
+    "wallat_temporal_conflict": {"found": true, "paper": "When Facts Change: Temporal Knowledge Conflict Resolution in LLMs", "venue": "ACL 2026 Findings", "decision": "recommend_add", "placement": "Introduction / Temporal QA"},
+    "heyman_prompt_mimicking": {"found": true, "paper": "Steer Like the LLM: Activation Steering that Mimics Prompting", "id": "arXiv:2605.03907", "venue": "ICML 2026", "decision": "recommend_add", "placement": "Activation Steering"},
+    "momentum_steering": {"found": false, "decision": "exclude", "reason": "no canonical paper located; metadata uncertain"},
+    "contextfocus": {"found": false, "decision": "exclude", "reason": "not found"},
+    "chen_rag_compliance": {"found": false, "decision": "exclude", "reason": "ambiguous; would be title-similarity only"},
+    "adversarial_robustness_steering": {"found": "topic", "example": "arXiv:2505.22637", "decision": "optional", "placement": "Limitations"}
+  },
+  "bib_hygiene": {"unused_entries": ["kuhn2023semantic", "mahaut2024factual"], "cited_missing_from_bib": [], "duplicate_keys": []},
+  "fabricated_citations_found": []
+}

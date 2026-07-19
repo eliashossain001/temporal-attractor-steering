@@ -1,0 +1,76 @@
+{
+  "model": "llama-3.1-8b",
+  "model_revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+  "layer": 31,
+  "detector_test": {
+    "auprc_true_base": 0.09665657598154107,
+    "auroc": 0.5984459770114943,
+    "brier": 0.060946859450585734,
+    "n_test_pos": 87,
+    "n_test_neg": 1250
+  },
+  "operating_points": {
+    "tau_0.15": {
+      "tau": 0.15,
+      "precision": 0.15294117647058825,
+      "recall": 0.14942528735632185,
+      "fpr": 0.0576,
+      "fraction_steered_test": 0.06357516828721017,
+      "fraction_steered_val": 0.06278713629402756,
+      "confusion": {
+        "tp": 13,
+        "fp": 72,
+        "fn": 74,
+        "tn": 1178
+      }
+    },
+    "tau_0.2": {
+      "tau": 0.2,
+      "precision": 0.15294117647058825,
+      "recall": 0.14942528735632185,
+      "fpr": 0.0576,
+      "fraction_steered_test": 0.06357516828721017,
+      "fraction_steered_val": 0.06278713629402756,
+      "confusion": {
+        "tp": 13,
+        "fp": 72,
+        "fn": 74,
+        "tn": 1178
+      }
+    },
+    "tau_0.3": {
+      "tau": 0.3,
+      "precision": 0.23076923076923078,
+      "recall": 0.034482758620689655,
+      "fpr": 0.008,
+      "fraction_steered_test": 0.009723261032161555,
+      "fraction_steered_val": 0.01914241960183767,
+      "confusion": {
+        "tp": 3,
+        "fp": 10,
+        "fn": 84,
+        "tn": 1240
+      }
+    }
+  },
+  "detector_gated_tas": {
+    "tau_0.15": {
+      "recovery": 0.06896551724137931,
+      "pa": 0.98,
+      "fraction_steered_ptc": 0.14942528735632185,
+      "fraction_steered_ctrl": 0.085
+    },
+    "tau_0.2": {
+      "recovery": 0.06896551724137931,
+      "pa": 0.98,
+      "fraction_steered_ptc": 0.14942528735632185,
+      "fraction_steered_ctrl": 0.085
+    },
+    "tau_0.3": {
+      "recovery": 0.011494252873563218,
+      "pa": 0.995,
+      "fraction_steered_ptc": 0.034482758620689655,
+      "fraction_steered_ctrl": 0.01
+    }
+  }
+}

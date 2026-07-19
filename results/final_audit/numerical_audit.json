@@ -1,0 +1,47 @@
+{
+  "headline_claims": [
+    {
+      "section": "abstract/intro",
+      "claim": "benchmark size 8,746",
+      "regex": "8[,{}]*746",
+      "status": "present"
+    },
+    {
+      "section": "abstract",
+      "claim": "date-prefix 61--81%",
+      "regex": "61\\$?--\\$?81",
+      "status": "present"
+    },
+    {
+      "section": "abstract",
+      "claim": "patching 72--85%",
+      "regex": "72\\$?--\\$?85",
+      "status": "present"
+    },
+    {
+      "section": "abstract",
+      "claim": "TAS oracle 29--62% (was stale 29--57)",
+      "regex": "29\\$?--\\$?62",
+      "status": "present"
+    },
+    {
+      "section": "abstract",
+      "claim": "random-direction 18--31%",
+      "regex": "18\\$?--\\$?31",
+      "status": "present"
+    },
+    {
+      "section": "intro",
+      "claim": "filtered PTC 0.041->0.103",
+      "regex": "0\\.041.*0\\.103",
+      "status": "present"
+    },
+    {
+      "section": "locator",
+      "claim": "AFR peaks",
+      "regex": "0\\.72.*0\\.85|0\\.723|0\\.851|0\\.824|0\\.816",
+      "status": "present"
+    }
+  ],
+  "stale_markers": []
+}

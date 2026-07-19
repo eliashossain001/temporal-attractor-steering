@@ -1,0 +1,11 @@
+{
+  "train_ptc_filtered": 149,
+  "val_ptc": 58,
+  "test_ptc": 39,
+  "val_ctrl": 200,
+  "test_ctrl": 200,
+  "iti_pos": 500,
+  "iti_neg": 189,
+  "layer": 23,
+  "model_revision": "d149729398750b98c0af14eb82c78cfe92750796"
+}

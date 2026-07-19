@@ -1,0 +1,26 @@
+{
+  "3": {
+    "vs_ell_star": 31,
+    "recovery_ellstar_minus_layer": 0.0,
+    "rec_discordant_star/layer": "5/5",
+    "rec_mcnemar_p": 1.0,
+    "pa_discordant_star/layer": "13/3",
+    "pa_mcnemar_p": 0.021270751953125
+  },
+  "21": {
+    "vs_ell_star": 31,
+    "recovery_ellstar_minus_layer": -0.0115,
+    "rec_discordant_star/layer": "0/1",
+    "rec_mcnemar_p": 1.0,
+    "pa_discordant_star/layer": "11/0",
+    "pa_mcnemar_p": 0.0009765625
+  },
+  "23": {
+    "vs_ell_star": 31,
+    "recovery_ellstar_minus_layer": -0.0115,
+    "rec_discordant_star/layer": "0/1",
+    "rec_mcnemar_p": 1.0,
+    "pa_discordant_star/layer": "11/0",
+    "pa_mcnemar_p": 0.0009765625
+  }
+}

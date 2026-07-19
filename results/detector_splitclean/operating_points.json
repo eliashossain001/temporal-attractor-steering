@@ -1,0 +1,1183 @@
+{
+  "protocol": "subject_disjoint_v1",
+  "bootstrap_B": 10000,
+  "bootstrap_seed": 0,
+  "bootstrap_unit": "subject_qid (subject-level resampling)",
+  "threshold_selection": "validation split only; test never used for selection",
+  "consistency_vs_stored_json": [
+    {
+      "model": "qwen-2.5-1.5b",
+      "auroc_recomputed": 0.466511,
+      "auroc_stored": 0.466511,
+      "auprc_recomputed": 0.027513,
+      "auprc_stored": 0.027513,
+      "match": true
+    },
+    {
+      "model": "qwen-2.5-7b",
+      "auroc_recomputed": 0.571352,
+      "auroc_stored": 0.571352,
+      "auprc_recomputed": 0.056146,
+      "auprc_stored": 0.056146,
+      "match": true
+    },
+    {
+      "model": "mistral-7b-v0.3",
+      "auroc_recomputed": 0.657433,
+      "auroc_stored": 0.657433,
+      "auprc_recomputed": 0.091512,
+      "auprc_stored": 0.091512,
+      "match": true
+    },
+    {
+      "model": "llama-3.1-8b",
+      "auroc_recomputed": 0.598446,
+      "auroc_stored": 0.598446,
+      "auprc_recomputed": 0.096657,
+      "auprc_stored": 0.096657,
+      "match": true
+    }
+  ],
+  "operating_points": [
+    {
+      "model": "qwen-2.5-1.5b",
+      "operating_point": "primary_tau0.15",
+      "tau": 0.15,
+      "note": "current primary (most permissive val threshold)",
+      "auroc": 0.4665,
+      "auprc_true_base": 0.0275,
+      "brier": 0.0236,
+      "ece": 0.0041,
+      "tp": 1,
+      "fp": 6,
+      "tn": 1299,
+      "fn": 31,
+      "pos": 32,
+      "neg": 1305,
+      "n": 1337,
+      "precision": 0.1429,
+      "recall_tpr": 0.0312,
+      "specificity_tnr": 0.9954,
+      "fpr": 0.0046,
+      "fnr": 0.9688,
+      "f1": 0.0513,
+      "balanced_acc": 0.5133,
+      "pct_gated": 0.0052,
+      "pct_ptc_gated": 0.0312,
+      "pct_nonconflict_gated": 0.0046,
+      "gated_recovery": 0.03125,
+      "gated_pa": 1.0,
+      "ci95": {
+        "precision": [
+          0.0,
+          0.5
+        ],
+        "recall_tpr": [
+          0.0,
+          0.1071
+        ],
+        "fpr": [
+          0.0015,
+          0.0086
+        ],
+        "f1": [
+          0.0,
+          0.1667
+        ],
+        "balanced_acc": [
+          0.4962,
+          0.5509
+        ],
+        "pct_gated": [
+          0.0015,
+          0.0096
+        ]
+      },
+      "n_test_pos": 32,
+      "n_test_neg": 1305
+    },
+    {
+      "model": "qwen-2.5-1.5b",
+      "operating_point": "val_F1_max",
+      "tau": 0.28,
+      "note": "maximises validation F1 (=0.087)",
+      "auroc": 0.4665,
+      "auprc_true_base": 0.0275,
+      "brier": 0.0236,
+      "ece": 0.0041,
+      "tp": 0,
+      "fp": 4,
+      "tn": 1301,
+      "fn": 32,
+      "pos": 32,
+      "neg": 1305,
+      "n": 1337,
+      "precision": 0.0,
+      "recall_tpr": 0.0,
+      "specificity_tnr": 0.9969,
+      "fpr": 0.0031,
+      "fnr": 1.0,
+      "f1": 0.0,
+      "balanced_acc": 0.4985,
+      "pct_gated": 0.003,
+      "pct_ptc_gated": 0.0,
+      "pct_nonconflict_gated": 0.0031,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0,
+          0.0
+        ],
+        "recall_tpr": [
+          0.0,
+          0.0
+        ],
+        "fpr": [
+          0.0007,
+          0.0063
+        ],
+        "f1": [
+          0.0,
+          0.0
+        ],
+        "balanced_acc": [
+          0.4968,
+          0.4996
+        ],
+        "pct_gated": [
+          0.0007,
+          0.0062
+        ]
+      },
+      "n_test_pos": 32,
+      "n_test_neg": 1305
+    },
+    {
+      "model": "qwen-2.5-1.5b",
+      "operating_point": "val_youdenJ_max",
+      "tau": 0.28,
+      "note": "maximises validation Youden J=TPR-FPR (=0.050)",
+      "auroc": 0.4665,
+      "auprc_true_base": 0.0275,
+      "brier": 0.0236,
+      "ece": 0.0041,
+      "tp": 0,
+      "fp": 4,
+      "tn": 1301,
+      "fn": 32,
+      "pos": 32,
+      "neg": 1305,
+      "n": 1337,
+      "precision": 0.0,
+      "recall_tpr": 0.0,
+      "specificity_tnr": 0.9969,
+      "fpr": 0.0031,
+      "fnr": 1.0,
+      "f1": 0.0,
+      "balanced_acc": 0.4985,
+      "pct_gated": 0.003,
+      "pct_ptc_gated": 0.0,
+      "pct_nonconflict_gated": 0.0031,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0,
+          0.0
+        ],
+        "recall_tpr": [
+          0.0,
+          0.0
+        ],
+        "fpr": [
+          0.0007,
+          0.0063
+        ],
+        "f1": [
+          0.0,
+          0.0
+        ],
+        "balanced_acc": [
+          0.4968,
+          0.4996
+        ],
+        "pct_gated": [
+          0.0007,
+          0.0062
+        ]
+      },
+      "n_test_pos": 32,
+      "n_test_neg": 1305
+    },
+    {
+      "model": "qwen-2.5-1.5b",
+      "operating_point": "val_FPR_le_5pct",
+      "tau": 0.03,
+      "note": "lowest tau with validation FPR<=5% and TPR>0",
+      "auroc": 0.4665,
+      "auprc_true_base": 0.0275,
+      "brier": 0.0236,
+      "ece": 0.0041,
+      "tp": 1,
+      "fp": 8,
+      "tn": 1297,
+      "fn": 31,
+      "pos": 32,
+      "neg": 1305,
+      "n": 1337,
+      "precision": 0.1111,
+      "recall_tpr": 0.0312,
+      "specificity_tnr": 0.9939,
+      "fpr": 0.0061,
+      "fnr": 0.9688,
+      "f1": 0.0488,
+      "balanced_acc": 0.5126,
+      "pct_gated": 0.0067,
+      "pct_ptc_gated": 0.0312,
+      "pct_nonconflict_gated": 0.0061,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0,
+          0.375
+        ],
+        "recall_tpr": [
+          0.0,
+          0.1071
+        ],
+        "fpr": [
+          0.0023,
+          0.0108
+        ],
+        "f1": [
+          0.0,
+          0.1569
+        ],
+        "balanced_acc": [
+          0.4953,
+          0.5501
+        ],
+        "pct_gated": [
+          0.0029,
+          0.0114
+        ]
+      },
+      "n_test_pos": 32,
+      "n_test_neg": 1305
+    },
+    {
+      "model": "qwen-2.5-1.5b",
+      "operating_point": "always_on",
+      "tau": 0.0,
+      "note": "no detector gate (mechanistic upper bound)",
+      "auroc": 0.4665,
+      "auprc_true_base": 0.0275,
+      "brier": 0.0236,
+      "ece": 0.0041,
+      "tp": 32,
+      "fp": 1305,
+      "tn": 0,
+      "fn": 0,
+      "pos": 32,
+      "neg": 1305,
+      "n": 1337,
+      "precision": 0.0239,
+      "recall_tpr": 1.0,
+      "specificity_tnr": 0.0,
+      "fpr": 1.0,
+      "fnr": 0.0,
+      "f1": 0.0467,
+      "balanced_acc": 0.5,
+      "pct_gated": 1.0,
+      "pct_ptc_gated": 1.0,
+      "pct_nonconflict_gated": 1.0,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0163,
+          0.0321
+        ],
+        "recall_tpr": [
+          1.0,
+          1.0
+        ],
+        "fpr": [
+          1.0,
+          1.0
+        ],
+        "f1": [
+          0.0321,
+          0.0622
+        ],
+        "balanced_acc": [
+          0.5,
+          0.5
+        ],
+        "pct_gated": [
+          1.0,
+          1.0
+        ]
+      },
+      "n_test_pos": 32,
+      "n_test_neg": 1305
+    },
+    {
+      "model": "qwen-2.5-7b",
+      "operating_point": "primary_tau0.15",
+      "tau": 0.15,
+      "note": "current primary (most permissive val threshold)",
+      "auroc": 0.5714,
+      "auprc_true_base": 0.0561,
+      "brier": 0.0288,
+      "ece": 0.012,
+      "tp": 5,
+      "fp": 33,
+      "tn": 1265,
+      "fn": 34,
+      "pos": 39,
+      "neg": 1298,
+      "n": 1337,
+      "precision": 0.1316,
+      "recall_tpr": 0.1282,
+      "specificity_tnr": 0.9746,
+      "fpr": 0.0254,
+      "fnr": 0.8718,
+      "f1": 0.1299,
+      "balanced_acc": 0.5514,
+      "pct_gated": 0.0284,
+      "pct_ptc_gated": 0.1282,
+      "pct_nonconflict_gated": 0.0254,
+      "gated_recovery": 0.07692307692307693,
+      "gated_pa": 0.97,
+      "ci95": {
+        "precision": [
+          0.04,
+          0.225
+        ],
+        "recall_tpr": [
+          0.0286,
+          0.25
+        ],
+        "fpr": [
+          0.0138,
+          0.0401
+        ],
+        "f1": [
+          0.0333,
+          0.2188
+        ],
+        "balanced_acc": [
+          0.5052,
+          0.6084
+        ],
+        "pct_gated": [
+          0.0153,
+          0.0446
+        ]
+      },
+      "n_test_pos": 39,
+      "n_test_neg": 1298
+    },
+    {
+      "model": "qwen-2.5-7b",
+      "operating_point": "val_F1_max",
+      "tau": 0.04,
+      "note": "maximises validation F1 (=0.239)",
+      "auroc": 0.5714,
+      "auprc_true_base": 0.0561,
+      "brier": 0.0288,
+      "ece": 0.012,
+      "tp": 13,
+      "fp": 162,
+      "tn": 1136,
+      "fn": 26,
+      "pos": 39,
+      "neg": 1298,
+      "n": 1337,
+      "precision": 0.0743,
+      "recall_tpr": 0.3333,
+      "specificity_tnr": 0.8752,
+      "fpr": 0.1248,
+      "fnr": 0.6667,
+      "f1": 0.1215,
+      "balanced_acc": 0.6043,
+      "pct_gated": 0.1309,
+      "pct_ptc_gated": 0.3333,
+      "pct_nonconflict_gated": 0.1248,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0366,
+          0.118
+        ],
+        "recall_tpr": [
+          0.1786,
+          0.5
+        ],
+        "fpr": [
+          0.0988,
+          0.1534
+        ],
+        "f1": [
+          0.0619,
+          0.1872
+        ],
+        "balanced_acc": [
+          0.5277,
+          0.6873
+        ],
+        "pct_gated": [
+          0.1041,
+          0.16
+        ]
+      },
+      "n_test_pos": 39,
+      "n_test_neg": 1298
+    },
+    {
+      "model": "qwen-2.5-7b",
+      "operating_point": "val_youdenJ_max",
+      "tau": 0.04,
+      "note": "maximises validation Youden J=TPR-FPR (=0.353)",
+      "auroc": 0.5714,
+      "auprc_true_base": 0.0561,
+      "brier": 0.0288,
+      "ece": 0.012,
+      "tp": 13,
+      "fp": 162,
+      "tn": 1136,
+      "fn": 26,
+      "pos": 39,
+      "neg": 1298,
+      "n": 1337,
+      "precision": 0.0743,
+      "recall_tpr": 0.3333,
+      "specificity_tnr": 0.8752,
+      "fpr": 0.1248,
+      "fnr": 0.6667,
+      "f1": 0.1215,
+      "balanced_acc": 0.6043,
+      "pct_gated": 0.1309,
+      "pct_ptc_gated": 0.3333,
+      "pct_nonconflict_gated": 0.1248,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0366,
+          0.118
+        ],
+        "recall_tpr": [
+          0.1786,
+          0.5
+        ],
+        "fpr": [
+          0.0988,
+          0.1534
+        ],
+        "f1": [
+          0.0619,
+          0.1872
+        ],
+        "balanced_acc": [
+          0.5277,
+          0.6873
+        ],
+        "pct_gated": [
+          0.1041,
+          0.16
+        ]
+      },
+      "n_test_pos": 39,
+      "n_test_neg": 1298
+    },
+    {
+      "model": "qwen-2.5-7b",
+      "operating_point": "val_FPR_le_5pct",
+      "tau": 0.07,
+      "note": "lowest tau with validation FPR<=5% and TPR>0",
+      "auroc": 0.5714,
+      "auprc_true_base": 0.0561,
+      "brier": 0.0288,
+      "ece": 0.012,
+      "tp": 10,
+      "fp": 59,
+      "tn": 1239,
+      "fn": 29,
+      "pos": 39,
+      "neg": 1298,
+      "n": 1337,
+      "precision": 0.1449,
+      "recall_tpr": 0.2564,
+      "specificity_tnr": 0.9545,
+      "fpr": 0.0455,
+      "fnr": 0.7436,
+      "f1": 0.1852,
+      "balanced_acc": 0.6055,
+      "pct_gated": 0.0516,
+      "pct_ptc_gated": 0.2564,
+      "pct_nonconflict_gated": 0.0455,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0645,
+          0.2407
+        ],
+        "recall_tpr": [
+          0.1143,
+          0.4138
+        ],
+        "fpr": [
+          0.0296,
+          0.0637
+        ],
+        "f1": [
+          0.0842,
+          0.2903
+        ],
+        "balanced_acc": [
+          0.5351,
+          0.6823
+        ],
+        "pct_gated": [
+          0.0347,
+          0.071
+        ]
+      },
+      "n_test_pos": 39,
+      "n_test_neg": 1298
+    },
+    {
+      "model": "qwen-2.5-7b",
+      "operating_point": "always_on",
+      "tau": 0.0,
+      "note": "no detector gate (mechanistic upper bound)",
+      "auroc": 0.5714,
+      "auprc_true_base": 0.0561,
+      "brier": 0.0288,
+      "ece": 0.012,
+      "tp": 39,
+      "fp": 1298,
+      "tn": 0,
+      "fn": 0,
+      "pos": 39,
+      "neg": 1298,
+      "n": 1337,
+      "precision": 0.0292,
+      "recall_tpr": 1.0,
+      "specificity_tnr": 0.0,
+      "fpr": 1.0,
+      "fnr": 0.0,
+      "f1": 0.0567,
+      "balanced_acc": 0.5,
+      "pct_gated": 1.0,
+      "pct_ptc_gated": 1.0,
+      "pct_nonconflict_gated": 1.0,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0203,
+          0.0389
+        ],
+        "recall_tpr": [
+          1.0,
+          1.0
+        ],
+        "fpr": [
+          1.0,
+          1.0
+        ],
+        "f1": [
+          0.0398,
+          0.0748
+        ],
+        "balanced_acc": [
+          0.5,
+          0.5
+        ],
+        "pct_gated": [
+          1.0,
+          1.0
+        ]
+      },
+      "n_test_pos": 39,
+      "n_test_neg": 1298
+    },
+    {
+      "model": "mistral-7b-v0.3",
+      "operating_point": "primary_tau0.15",
+      "tau": 0.15,
+      "note": "current primary (most permissive val threshold)",
+      "auroc": 0.6574,
+      "auprc_true_base": 0.0915,
+      "brier": 0.0531,
+      "ece": 0.0168,
+      "tp": 16,
+      "fp": 130,
+      "tn": 1136,
+      "fn": 55,
+      "pos": 71,
+      "neg": 1266,
+      "n": 1337,
+      "precision": 0.1096,
+      "recall_tpr": 0.2254,
+      "specificity_tnr": 0.8973,
+      "fpr": 0.1027,
+      "fnr": 0.7746,
+      "f1": 0.1475,
+      "balanced_acc": 0.5613,
+      "pct_gated": 0.1092,
+      "pct_ptc_gated": 0.2254,
+      "pct_nonconflict_gated": 0.1027,
+      "gated_recovery": 0.056338028169014086,
+      "gated_pa": 1.0,
+      "ci95": {
+        "precision": [
+          0.0526,
+          0.1773
+        ],
+        "recall_tpr": [
+          0.1127,
+          0.3462
+        ],
+        "fpr": [
+          0.074,
+          0.1349
+        ],
+        "f1": [
+          0.0732,
+          0.2271
+        ],
+        "balanced_acc": [
+          0.5048,
+          0.6214
+        ],
+        "pct_gated": [
+          0.08,
+          0.141
+        ]
+      },
+      "n_test_pos": 71,
+      "n_test_neg": 1266
+    },
+    {
+      "model": "mistral-7b-v0.3",
+      "operating_point": "val_F1_max",
+      "tau": 0.1,
+      "note": "maximises validation F1 (=0.201)",
+      "auroc": 0.6574,
+      "auprc_true_base": 0.0915,
+      "brier": 0.0531,
+      "ece": 0.0168,
+      "tp": 16,
+      "fp": 130,
+      "tn": 1136,
+      "fn": 55,
+      "pos": 71,
+      "neg": 1266,
+      "n": 1337,
+      "precision": 0.1096,
+      "recall_tpr": 0.2254,
+      "specificity_tnr": 0.8973,
+      "fpr": 0.1027,
+      "fnr": 0.7746,
+      "f1": 0.1475,
+      "balanced_acc": 0.5613,
+      "pct_gated": 0.1092,
+      "pct_ptc_gated": 0.2254,
+      "pct_nonconflict_gated": 0.1027,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0526,
+          0.1773
+        ],
+        "recall_tpr": [
+          0.1127,
+          0.3462
+        ],
+        "fpr": [
+          0.074,
+          0.1349
+        ],
+        "f1": [
+          0.0732,
+          0.2271
+        ],
+        "balanced_acc": [
+          0.5048,
+          0.6214
+        ],
+        "pct_gated": [
+          0.08,
+          0.141
+        ]
+      },
+      "n_test_pos": 71,
+      "n_test_neg": 1266
+    },
+    {
+      "model": "mistral-7b-v0.3",
+      "operating_point": "val_youdenJ_max",
+      "tau": 0.1,
+      "note": "maximises validation Youden J=TPR-FPR (=0.195)",
+      "auroc": 0.6574,
+      "auprc_true_base": 0.0915,
+      "brier": 0.0531,
+      "ece": 0.0168,
+      "tp": 16,
+      "fp": 130,
+      "tn": 1136,
+      "fn": 55,
+      "pos": 71,
+      "neg": 1266,
+      "n": 1337,
+      "precision": 0.1096,
+      "recall_tpr": 0.2254,
+      "specificity_tnr": 0.8973,
+      "fpr": 0.1027,
+      "fnr": 0.7746,
+      "f1": 0.1475,
+      "balanced_acc": 0.5613,
+      "pct_gated": 0.1092,
+      "pct_ptc_gated": 0.2254,
+      "pct_nonconflict_gated": 0.1027,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0526,
+          0.1773
+        ],
+        "recall_tpr": [
+          0.1127,
+          0.3462
+        ],
+        "fpr": [
+          0.074,
+          0.1349
+        ],
+        "f1": [
+          0.0732,
+          0.2271
+        ],
+        "balanced_acc": [
+          0.5048,
+          0.6214
+        ],
+        "pct_gated": [
+          0.08,
+          0.141
+        ]
+      },
+      "n_test_pos": 71,
+      "n_test_neg": 1266
+    },
+    {
+      "model": "mistral-7b-v0.3",
+      "operating_point": "val_FPR_le_5pct",
+      "tau": 0.2,
+      "note": "lowest tau with validation FPR<=5% and TPR>0",
+      "auroc": 0.6574,
+      "auprc_true_base": 0.0915,
+      "brier": 0.0531,
+      "ece": 0.0168,
+      "tp": 2,
+      "fp": 6,
+      "tn": 1260,
+      "fn": 69,
+      "pos": 71,
+      "neg": 1266,
+      "n": 1337,
+      "precision": 0.25,
+      "recall_tpr": 0.0282,
+      "specificity_tnr": 0.9953,
+      "fpr": 0.0047,
+      "fnr": 0.9718,
+      "f1": 0.0506,
+      "balanced_acc": 0.5117,
+      "pct_gated": 0.006,
+      "pct_ptc_gated": 0.0282,
+      "pct_nonconflict_gated": 0.0047,
+      "gated_recovery": 0.014084507042253521,
+      "gated_pa": 1.0,
+      "ci95": {
+        "precision": [
+          0.0,
+          0.5333
+        ],
+        "recall_tpr": [
+          0.0,
+          0.0938
+        ],
+        "fpr": [
+          0.0015,
+          0.0088
+        ],
+        "f1": [
+          0.0,
+          0.1558
+        ],
+        "balanced_acc": [
+          0.4966,
+          0.5439
+        ],
+        "pct_gated": [
+          0.0015,
+          0.0121
+        ]
+      },
+      "n_test_pos": 71,
+      "n_test_neg": 1266
+    },
+    {
+      "model": "mistral-7b-v0.3",
+      "operating_point": "always_on",
+      "tau": 0.0,
+      "note": "no detector gate (mechanistic upper bound)",
+      "auroc": 0.6574,
+      "auprc_true_base": 0.0915,
+      "brier": 0.0531,
+      "ece": 0.0168,
+      "tp": 71,
+      "fp": 1266,
+      "tn": 0,
+      "fn": 0,
+      "pos": 71,
+      "neg": 1266,
+      "n": 1337,
+      "precision": 0.0531,
+      "recall_tpr": 1.0,
+      "specificity_tnr": 0.0,
+      "fpr": 1.0,
+      "fnr": 0.0,
+      "f1": 0.1009,
+      "balanced_acc": 0.5,
+      "pct_gated": 1.0,
+      "pct_ptc_gated": 1.0,
+      "pct_nonconflict_gated": 1.0,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0405,
+          0.0666
+        ],
+        "recall_tpr": [
+          1.0,
+          1.0
+        ],
+        "fpr": [
+          1.0,
+          1.0
+        ],
+        "f1": [
+          0.0778,
+          0.1248
+        ],
+        "balanced_acc": [
+          0.5,
+          0.5
+        ],
+        "pct_gated": [
+          1.0,
+          1.0
+        ]
+      },
+      "n_test_pos": 71,
+      "n_test_neg": 1266
+    },
+    {
+      "model": "llama-3.1-8b",
+      "operating_point": "primary_tau0.15",
+      "tau": 0.15,
+      "note": "current primary (most permissive val threshold)",
+      "auroc": 0.5984,
+      "auprc_true_base": 0.0967,
+      "brier": 0.0609,
+      "ece": 0.01,
+      "tp": 13,
+      "fp": 72,
+      "tn": 1178,
+      "fn": 74,
+      "pos": 87,
+      "neg": 1250,
+      "n": 1337,
+      "precision": 0.1529,
+      "recall_tpr": 0.1494,
+      "specificity_tnr": 0.9424,
+      "fpr": 0.0576,
+      "fnr": 0.8506,
+      "f1": 0.1512,
+      "balanced_acc": 0.5459,
+      "pct_gated": 0.0636,
+      "pct_ptc_gated": 0.1494,
+      "pct_nonconflict_gated": 0.0576,
+      "gated_recovery": 0.06896551724137931,
+      "gated_pa": 0.98,
+      "ci95": {
+        "precision": [
+          0.0753,
+          0.2385
+        ],
+        "recall_tpr": [
+          0.069,
+          0.2381
+        ],
+        "fpr": [
+          0.0403,
+          0.0765
+        ],
+        "f1": [
+          0.0732,
+          0.2304
+        ],
+        "balanced_acc": [
+          0.5071,
+          0.5895
+        ],
+        "pct_gated": [
+          0.0453,
+          0.0831
+        ]
+      },
+      "n_test_pos": 87,
+      "n_test_neg": 1250
+    },
+    {
+      "model": "llama-3.1-8b",
+      "operating_point": "val_F1_max",
+      "tau": 0.13,
+      "note": "maximises validation F1 (=0.246)",
+      "auroc": 0.5984,
+      "auprc_true_base": 0.0967,
+      "brier": 0.0609,
+      "ece": 0.01,
+      "tp": 18,
+      "fp": 116,
+      "tn": 1134,
+      "fn": 69,
+      "pos": 87,
+      "neg": 1250,
+      "n": 1337,
+      "precision": 0.1343,
+      "recall_tpr": 0.2069,
+      "specificity_tnr": 0.9072,
+      "fpr": 0.0928,
+      "fnr": 0.7931,
+      "f1": 0.1629,
+      "balanced_acc": 0.557,
+      "pct_gated": 0.1002,
+      "pct_ptc_gated": 0.2069,
+      "pct_nonconflict_gated": 0.0928,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0764,
+          0.2
+        ],
+        "recall_tpr": [
+          0.117,
+          0.3059
+        ],
+        "fpr": [
+          0.0684,
+          0.1197
+        ],
+        "f1": [
+          0.0942,
+          0.2342
+        ],
+        "balanced_acc": [
+          0.5132,
+          0.6062
+        ],
+        "pct_gated": [
+          0.0749,
+          0.1273
+        ]
+      },
+      "n_test_pos": 87,
+      "n_test_neg": 1250
+    },
+    {
+      "model": "llama-3.1-8b",
+      "operating_point": "val_youdenJ_max",
+      "tau": 0.11,
+      "note": "maximises validation Youden J=TPR-FPR (=0.214)",
+      "auroc": 0.5984,
+      "auprc_true_base": 0.0967,
+      "brier": 0.0609,
+      "ece": 0.01,
+      "tp": 23,
+      "fp": 151,
+      "tn": 1099,
+      "fn": 64,
+      "pos": 87,
+      "neg": 1250,
+      "n": 1337,
+      "precision": 0.1322,
+      "recall_tpr": 0.2644,
+      "specificity_tnr": 0.8792,
+      "fpr": 0.1208,
+      "fnr": 0.7356,
+      "f1": 0.1762,
+      "balanced_acc": 0.5718,
+      "pct_gated": 0.1301,
+      "pct_ptc_gated": 0.2644,
+      "pct_nonconflict_gated": 0.1208,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0828,
+          0.1867
+        ],
+        "recall_tpr": [
+          0.1685,
+          0.3674
+        ],
+        "fpr": [
+          0.0929,
+          0.1504
+        ],
+        "f1": [
+          0.113,
+          0.2406
+        ],
+        "balanced_acc": [
+          0.5252,
+          0.6218
+        ],
+        "pct_gated": [
+          0.1019,
+          0.1603
+        ]
+      },
+      "n_test_pos": 87,
+      "n_test_neg": 1250
+    },
+    {
+      "model": "llama-3.1-8b",
+      "operating_point": "val_FPR_le_5pct",
+      "tau": 0.24,
+      "note": "lowest tau with validation FPR<=5% and TPR>0",
+      "auroc": 0.5984,
+      "auprc_true_base": 0.0967,
+      "brier": 0.0609,
+      "ece": 0.01,
+      "tp": 3,
+      "fp": 16,
+      "tn": 1234,
+      "fn": 84,
+      "pos": 87,
+      "neg": 1250,
+      "n": 1337,
+      "precision": 0.1579,
+      "recall_tpr": 0.0345,
+      "specificity_tnr": 0.9872,
+      "fpr": 0.0128,
+      "fnr": 0.9655,
+      "f1": 0.0566,
+      "balanced_acc": 0.5108,
+      "pct_gated": 0.0142,
+      "pct_ptc_gated": 0.0345,
+      "pct_nonconflict_gated": 0.0128,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0,
+          0.4
+        ],
+        "recall_tpr": [
+          0.0,
+          0.0909
+        ],
+        "fpr": [
+          0.0056,
+          0.0216
+        ],
+        "f1": [
+          0.0,
+          0.1429
+        ],
+        "balanced_acc": [
+          0.4917,
+          0.5394
+        ],
+        "pct_gated": [
+          0.0067,
+          0.0231
+        ]
+      },
+      "n_test_pos": 87,
+      "n_test_neg": 1250
+    },
+    {
+      "model": "llama-3.1-8b",
+      "operating_point": "always_on",
+      "tau": 0.0,
+      "note": "no detector gate (mechanistic upper bound)",
+      "auroc": 0.5984,
+      "auprc_true_base": 0.0967,
+      "brier": 0.0609,
+      "ece": 0.01,
+      "tp": 87,
+      "fp": 1250,
+      "tn": 0,
+      "fn": 0,
+      "pos": 87,
+      "neg": 1250,
+      "n": 1337,
+      "precision": 0.0651,
+      "recall_tpr": 1.0,
+      "specificity_tnr": 0.0,
+      "fpr": 1.0,
+      "fnr": 0.0,
+      "f1": 0.1222,
+      "balanced_acc": 0.5,
+      "pct_gated": 1.0,
+      "pct_ptc_gated": 1.0,
+      "pct_nonconflict_gated": 1.0,
+      "gated_recovery": null,
+      "gated_pa": null,
+      "ci95": {
+        "precision": [
+          0.0517,
+          0.0784
+        ],
+        "recall_tpr": [
+          1.0,
+          1.0
+        ],
+        "fpr": [
+          1.0,
+          1.0
+        ],
+        "f1": [
+          0.0983,
+          0.1453
+        ],
+        "balanced_acc": [
+          0.5,
+          0.5
+        ],
+        "pct_gated": [
+          1.0,
+          1.0
+        ]
+      },
+      "n_test_pos": 87,
+      "n_test_neg": 1250
+    }
+  ]
+}

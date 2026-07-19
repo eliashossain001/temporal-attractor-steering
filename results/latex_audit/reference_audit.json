@@ -1,0 +1,38 @@
+{
+  "per_doc": {
+    "main": {
+      "n_labels": 28,
+      "duplicate_labels": [],
+      "n_refs": 34,
+      "missing_internal_refs": [],
+      "cross_document_refs": [],
+      "n_cites": 57,
+      "missing_citation_keys": [],
+      "literal_markers": {}
+    },
+    "supplement": {
+      "n_labels": 71,
+      "duplicate_labels": [],
+      "n_refs": 93,
+      "missing_internal_refs": [],
+      "cross_document_refs": [],
+      "n_cites": 3,
+      "missing_citation_keys": [],
+      "literal_markers": {
+        "placeholder": 1
+      }
+    }
+  },
+  "bib": {
+    "n_entries": 32,
+    "duplicate_keys": [],
+    "n_unique_keys": 32
+  },
+  "summary": {
+    "total_broken_internal_refs": 0,
+    "total_duplicate_labels": 0,
+    "total_missing_citation_keys": 0,
+    "total_literal_markers": 1,
+    "CLEAN": true
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "purpose": "Unreviewed manual-audit sample for the TAS/PTC benchmark. Accuracy is NOT computed here; annotate the CSV then run scripts/summarize_benchmark_audit.py.",
+  "generated_utc": "2026-07-12T00:46:19.033885+00:00",
+  "benchmark_path": "/home/elias/elias_projects/tas_framework/data/large/combined_all.jsonl",
+  "benchmark_sha256": "ad75be4ed3cfefc474e4cf743814f8dd31fee1088531e3fc57c26ab8698fcf0b",
+  "benchmark_record_count": 8746,
+  "expected_record_count": 8746,
+  "sample_size": 200,
+  "seed": 20260711,
+  "stratified": true,
+  "floor_per_relation": 20,
+  "record_id_scheme": "relation:subject_qid:old_qid->new_qid@t_update",
+  "relation_population": {
+    "P6": 3583,
+    "P35": 183,
+    "P169": 208,
+    "P286": 2391,
+    "P488": 2381
+  },
+  "relation_allocation": {
+    "P6": 61,
+    "P35": 22,
+    "P169": 22,
+    "P286": 48,
+    "P488": 47
+  },
+  "relation_realized": {
+    "P169": 22,
+    "P286": 48,
+    "P35": 22,
+    "P488": 47,
+    "P6": 61
+  },
+  "population_weights": {
+    "P6": 0.40967299336839696,
+    "P35": 0.020923850903270067,
+    "P169": 0.02378230048021953,
+    "P286": 0.2733821175394466,
+    "P488": 0.2722387377086668
+  },
+  "controlled_vocab": {
+    "audit_status": [
+      "unreviewed",
+      "reviewed"
+    ],
+    "is_correct_supersession": [
+      "yes",
+      "no",
+      "ambiguous"
+    ],
+    "issue_category": [
+      "none",
+      "overlapping_validity",
+      "vacancy_or_gap",
+      "coholder",
+      "interim_or_caretaker",
+      "same_entity",
+      "incorrect_dates",
+      "incorrect_labels",
+      "additive_not_superseding",
+      "insufficient_evidence",
+      "other"
+    ]
+  },
+  "annotation_state": "unreviewed",
+  "reproduce_command": "python scripts/sample_benchmark_audit.py --n 200 --seed 20260711 --floor 20"
+}

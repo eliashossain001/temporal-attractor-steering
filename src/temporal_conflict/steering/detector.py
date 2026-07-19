@@ -169,6 +169,105 @@ def _threshold_sweep(
     return pts
 
 
+def _brier(probs: np.ndarray, labels: np.ndarray) -> float:
+    return float(np.mean((probs - labels) ** 2))
+
+
+def fit_eval_splitclean(
+    X_train: np.ndarray, y_train: np.ndarray,
+    X_calib: np.ndarray, y_calib: np.ndarray,
+    X_test: np.ndarray, y_test: np.ndarray,
+    layer: int,
+    X_val: Optional[np.ndarray] = None, y_val: Optional[np.ndarray] = None,
+    C: float = 1.0,
+    thresholds: Optional[list[float]] = None,
+    operating_thresholds: tuple[float, ...] = (0.15, 0.20, 0.30),
+) -> tuple[TrainedDetector, dict]:
+    """Subject-disjoint detector protocol (Bucket 4).
+
+    Fits the probe on ``train`` ONLY, fits the isotonic calibrator on
+    ``calibration`` ONLY, selects operating thresholds on ``validation``, and
+    reports all headline metrics on ``test`` ONLY. No split is reused for two
+    roles, so AUPRC/AUROC are never computed on the calibration examples.
+
+    Returns the calibrated detector and a metrics dict with both raw and
+    calibrated numbers on test.
+    """
+    if thresholds is None:
+        thresholds = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+    d_model = X_train.shape[1]
+
+    # Standardize with TRAIN statistics for fast, reliable lbfgs convergence,
+    # then fold the scaler back into raw-space (coef, intercept) so the stored
+    # detector is an exact raw-space linear probe (score()/steering unchanged).
+    mu = X_train.mean(axis=0)
+    sd = X_train.std(axis=0) + 1e-6
+    clf = LogisticRegression(C=C, max_iter=5000, class_weight="balanced")
+    clf.fit((X_train - mu) / sd, y_train)
+    coef_s = clf.coef_.ravel()
+    intercept_s = float(clf.intercept_.ravel()[0])
+    coef = (coef_s / sd).astype(np.float32)
+    intercept = float(intercept_s - np.sum(coef_s * mu / sd))
+    det = TrainedDetector(layer=layer, d_model=d_model, coef=coef,
+                          intercept=intercept, classes_=clf.classes_)
+
+    # Isotonic calibration on the CALIBRATION split only.
+    raw_calib = det._raw_prob(X_calib)
+    calibrator = IsotonicRegression(out_of_bounds="clip")
+    calibrator.fit(raw_calib, y_calib)
+    det.calibrator = calibrator
+
+    # Test-set scores (raw + calibrated).
+    raw_test = det._raw_prob(X_test)
+    cal_test = calibrator.transform(raw_test)
+
+    def block(probs):
+        p, r, _ = precision_recall_curve(y_test, probs)
+        return {
+            "auprc": float(average_precision_score(y_test, probs)),
+            "auroc": float(roc_auc_score(y_test, probs)),
+            "brier": _brier(probs, y_test),
+            "ece": _expected_calibration_error(probs, y_test),
+            "pr_curve": {"precision": p.tolist(), "recall": r.tolist()},
+            "threshold_sweep": [t.__dict__ for t in
+                                _threshold_sweep(probs, y_test, thresholds)],
+        }
+
+    # Operating points: threshold picked on VALIDATION, applied to TEST.
+    operating = []
+    if X_val is not None and y_val is not None:
+        cal_val = calibrator.transform(det._raw_prob(X_val))
+        for tau in operating_thresholds:
+            pred = (cal_test >= tau).astype(int)
+            tp = int(((pred == 1) & (y_test == 1)).sum())
+            fp = int(((pred == 1) & (y_test == 0)).sum())
+            fn = int(((pred == 0) & (y_test == 1)).sum())
+            tn = int(((pred == 0) & (y_test == 0)).sum())
+            pos = int(y_test.sum()); neg = int((y_test == 0).sum())
+            val_pred = (cal_val >= tau).astype(int)
+            operating.append({
+                "tau": tau,
+                "precision": tp / (tp + fp) if tp + fp else 0.0,
+                "recall": tp / pos if pos else 0.0,
+                "fpr": fp / neg if neg else 0.0,
+                "fraction_steered_test": (tp + fp) / len(y_test),
+                "fraction_steered_val": float(val_pred.mean()),
+                "confusion": {"tp": tp, "fp": fp, "fn": fn, "tn": tn},
+            })
+
+    metrics = {
+        "protocol": "subject_disjoint_v1",
+        "layer": layer, "d_model": d_model,
+        "n_train_pos": int(y_train.sum()), "n_train_neg": int((y_train == 0).sum()),
+        "n_calib_pos": int(y_calib.sum()), "n_calib_neg": int((y_calib == 0).sum()),
+        "n_test_pos": int(y_test.sum()), "n_test_neg": int((y_test == 0).sum()),
+        "raw_test": block(raw_test),
+        "calibrated_test": block(cal_test),
+        "operating_points_val_selected": operating,
+    }
+    return det, metrics
+
+
 def train_detector(
     positive_acts: np.ndarray,  # [N_pos, d_model]
     negative_acts: np.ndarray,  # [N_neg, d_model]
@@ -179,12 +278,13 @@ def train_detector(
     calibrate: bool = True,
     thresholds: Optional[list[float]] = None,
 ) -> tuple[TrainedDetector, DetectorMetrics]:
-    """Train logistic probe at one layer, calibrate, evaluate.
+    """LEGACY (leaked) instance-level detector -- retained as a diagnostic only.
 
-    Test-set predictions are used both to calibrate (isotonic) and to compute
-    AUPRC / AUROC / ECE / threshold sweep. This is intentionally a single
-    held-out split; for the paper the proposal's stronger protocol would do
-    nested CV, but for Phase 2E a single split is enough to read the headline.
+    WARNING: this fits on a random instance-level ``train_test_split`` (no
+    subject grouping, so records of one subject may cross splits) AND fits the
+    isotonic calibrator on the same test predictions used to report AUPRC/AUROC.
+    The corrected protocol is ``fit_eval_splitclean`` above, driven by the
+    subject-disjoint manifest. Do not mix these numbers with corrected ones.
     """
     if thresholds is None:
         thresholds = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]

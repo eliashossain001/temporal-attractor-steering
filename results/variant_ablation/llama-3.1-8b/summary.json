@@ -1,0 +1,33 @@
+{
+  "model": "llama-3.1-8b",
+  "model_revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+  "layer": 31,
+  "split_manifest_sha256": "ad75be4ed3cfefc474e4cf743814f8dd31fee1088531e3fc57c26ab8698fcf0b",
+  "n_test_ptc": 87,
+  "n_test_ctrl": 200,
+  "min_support": 10,
+  "variants": {
+    "v1": {
+      "alpha": 4.0,
+      "recovery": 0.3448275862068966,
+      "pa": 0.79,
+      "J": 0.1348275862068966,
+      "test_ptc_fallback": 0
+    },
+    "v2": {
+      "alpha": 6.0,
+      "recovery": 0.3563218390804598,
+      "pa": 0.785,
+      "J": 0.1413218390804598,
+      "test_ptc_fallback": 0
+    },
+    "v3": {
+      "alpha": 6.0,
+      "recovery": 0.367816091954023,
+      "pa": 0.79,
+      "J": 0.15781609195402302,
+      "test_ptc_fallback": 0
+    }
+  },
+  "runtime_sec": 566.2
+}

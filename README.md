@@ -10,6 +10,15 @@ cue. This repository contains:
 - the Temporal Attractor Steering pipeline (Phase 2: locate / build
   steering vector / train detector / evaluate),
 - a single CLI that orchestrates both,
+- the extended evaluations reported in the supplement: prompt/steering
+  baselines and controls, an ITI baseline with a paired held-out
+  TAS-vs-ITI comparison, V1/V2/V3 steering-vector ablations, the
+  τ_rec sensitivity sweep, patch-vs-edit layer localization, and
+  free-generation evaluation,
+- a subject-disjoint split protocol with a leakage audit and the
+  corrected split-clean detector,
+- deterministic benchmark-construction, verification, and manuscript
+  /LaTeX audits,
 - a 500-record subset for fast reviewer reproduction, and
 - a curated [`results/`](results/) tree with the JSON metrics from the
   full 8,746-record benchmark on four open-weight LMs.
@@ -23,15 +32,23 @@ cue. This repository contains:
 │   ├── subset/                   500-record reviewer subset
 │   └── large/                    8,746-record full benchmark
 ├── results/                      Curated JSON metrics (4 models, 8,746 records)
+│                                 incl. splits/, baselines/, iti_paired/,
+│                                 variant_ablation/, tau_rec_sensitivity/,
+│                                 detector_splitclean/, free_generation/,
+│                                 benchmark_verification/, final_audit/
 ├── runs/                         Re-created by the pipeline; gitignored
-├── scripts/run_all_models.sh    Batch runner over every model
+├── scripts/                      Reproduction + audit scripts (see below)
+│   └── run_all_models.sh         Batch runner over every model
 ├── src/temporal_conflict/        Python package
 │   ├── cli.py                    Single CLI entry point
 │   ├── pipeline.py               Orchestrator
 │   ├── config.py                 Typed config + RunPaths
 │   ├── stages.py                 OOP wrappers per pipeline stage
+│   ├── splits.py                 Authoritative subject-disjoint split protocol
 │   ├── env.py, io.py, models.py, metrics.py, schema.py, verify.py
-│   └── steering/                 Activations, locator, steer, detector, TAS
+│   ├── steering/                 Activations, locator, steer, detector, TAS
+│   ├── baselines/                Prompt/steering baselines, ITI, paired TAS-vs-ITI
+│   └── analysis/                 Model-free post-hoc stats (bootstrap CIs, McNemar)
 ├── pyproject.toml
 ├── requirements.txt
 └── .env.example                  Copy to .env and fill in HF_TOKEN
@@ -85,10 +102,12 @@ This iterates `qwen-2.5-1.5b`, `qwen-2.5-7b`, `mistral-7b-v0.3`,
 ## CLI reference
 
 ```
-python -m temporal_conflict.cli screen --model <key> [--data ...] [--runs-root ...]
-python -m temporal_conflict.cli locate --model <key> [...]
-python -m temporal_conflict.cli tas    --model <key> [...]
-python -m temporal_conflict.cli eval   --model <key> --tau 0.20 [--alpha 2.0]
+python -m temporal_conflict.cli screen    --model <key> [--data ...] [--runs-root ...]
+python -m temporal_conflict.cli locate    --model <key> [...]
+python -m temporal_conflict.cli tas       --model <key> [...]
+python -m temporal_conflict.cli eval      --model <key> --tau 0.20 [--alpha 2.0]
+python -m temporal_conflict.cli baselines --model <key> --screening <per_instance.jsonl> [...]
+python -m temporal_conflict.cli stats     --results-tas <dir> [--out ...] [--table ...]
 ```
 
 - `screen` runs Phase 1 only (per-instance scoring + summary).
@@ -99,6 +118,51 @@ python -m temporal_conflict.cli eval   --model <key> --tau 0.20 [--alpha 2.0]
 - `eval` runs Phase 2F at a single `(tau, alpha)` against a trained
   detector and a chosen alpha (defaults to alpha* from the oracle
   stage).
+- `baselines` computes the WP-A prompt baselines (standard / temporal /
+  RAG / contrastive decoding) and WP-B steering controls on the same
+  verified-PTC subset used by the TAS evaluation.
+- `stats` is model-free: it reads the Phase 2F `tas_eval_tau*.json`
+  outputs and emits bootstrap CIs and paired McNemar tests.
+
+## Extended evaluations and audits (paper supplement)
+
+The supplement's tables and figures are reproduced by the scripts in
+[`scripts/`](scripts/), all reading from the committed benchmark and the
+one versioned subject-disjoint split. They run in this order:
+
+```bash
+# 1. Authoritative subject-disjoint split + leakage audit
+python scripts/build_subject_disjoint_splits.py
+python scripts/audit_split_leakage.py
+python scripts/validate_splits.py
+
+# 2. Corrected (split-clean) detector: recompute, operating points, calibration
+python scripts/recompute_detector_splitclean.py
+python scripts/detector_operating_points.py
+python scripts/plot_detector_calibration.py
+
+# 3. Paired held-out TAS-vs-ITI, layer localization, τ_rec sweep, V1/V2/V3 ablation
+python scripts/run_paired_tas_iti.py         && python scripts/analyze_paired_iti.py
+python scripts/analyze_layer_localization.py && python scripts/plot_layer_localization.py
+python scripts/analyze_tau_rec_sensitivity.py
+python scripts/run_variant_ablation.py       && python scripts/analyze_variant_ablation.py
+
+# 4. Prompt/steering baselines and controls, free-generation evaluation
+python scripts/run_baselines_controls.py     && python scripts/summarize_baselines.py
+python scripts/evaluate_free_generation.py   && python scripts/summarize_generation_errors.py
+
+# 5. Benchmark construction/verification + deterministic final audits (no model runs)
+python scripts/export_sparql_queries.py
+python scripts/build_verification_manifest.py
+python scripts/audit_manuscript_numbers.py --repo .
+python scripts/audit_latex_references.py
+python scripts/run_final_audits.py --repo .        # orchestrates the audits
+```
+
+The final-audit scripts (step 5) are cheap, deterministic, and run no
+models; their outputs land in `results/final_audit/`. See
+[`results/README.md`](results/README.md) for the content-addressed split
+and result hashes and the manual benchmark-audit protocol.
 
 ## Pipeline architecture
 

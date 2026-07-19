@@ -1,0 +1,5 @@
+model,ell_star,primary_split,primary_n,peak_layer_primary,peak_afr_primary,afr_at_ell_star_primary,plateau05_width_primary,plateau05_range_primary,peak_afr_alldata,plateau05_width_alldata,wrong_layer,wrong_layer_afr_all,wrong_layer_inside_plateau05
+qwen-2.5-1.5b,23,val+test,28,23,0.571,0.571,6,22-27,0.723,6,2,0.0891,False
+qwen-2.5-7b,23,test,28,22,0.857,0.857,6,22-27,0.851,6,2,0.0524,False
+mistral-7b-v0.3,30,test,61,26,0.869,0.852,14,18-31,0.824,14,3,0.0062,False
+llama-3.1-8b,31,test,65,26,0.815,0.785,7,23-29,0.816,9,3,0.034,False

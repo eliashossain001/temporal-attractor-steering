@@ -1,0 +1,28 @@
+{
+  "model": "qwen-2.5-7b",
+  "model_revision": "d149729398750b98c0af14eb82c78cfe92750796",
+  "layer": 23,
+  "split_manifest_sha256": "ad75be4ed3cfefc474e4cf743814f8dd31fee1088531e3fc57c26ab8698fcf0b",
+  "n_test_ptc": 39,
+  "n_test_ctrl": 200,
+  "selected_alpha": {
+    "tas": 2.0,
+    "iti": 8.0
+  },
+  "methods": {
+    "tas": {
+      "alpha": 2.0,
+      "recovery": 0.5384615384615384,
+      "pa": 0.795,
+      "J": 0.3334615384615385
+    },
+    "iti": {
+      "alpha": 8.0,
+      "recovery": 0.5384615384615384,
+      "pa": 0.845,
+      "J": 0.3834615384615384
+    }
+  },
+  "runtime_sec": 441.2,
+  "device": "cuda:0"
+}

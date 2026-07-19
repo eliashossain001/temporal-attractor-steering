@@ -1,0 +1,73 @@
+{
+  "prohibited": {
+    "record_id": {
+      "train|validation": 0,
+      "train|calibration": 0,
+      "train|test": 0,
+      "validation|calibration": 0,
+      "validation|test": 0,
+      "calibration|test": 0
+    },
+    "subject_qid": {
+      "train|validation": 0,
+      "train|calibration": 0,
+      "train|test": 0,
+      "validation|calibration": 0,
+      "validation|test": 0,
+      "calibration|test": 0
+    },
+    "subject_label_norm": {
+      "train|validation": 0,
+      "train|calibration": 0,
+      "train|test": 0,
+      "validation|calibration": 0,
+      "validation|test": 0,
+      "calibration|test": 0
+    },
+    "subject_relation": {
+      "train|validation": 0,
+      "train|calibration": 0,
+      "train|test": 0,
+      "validation|calibration": 0,
+      "validation|test": 0,
+      "calibration|test": 0
+    },
+    "prompt_standard": {
+      "train|validation": 0,
+      "train|calibration": 0,
+      "train|test": 0,
+      "validation|calibration": 0,
+      "validation|test": 0,
+      "calibration|test": 0
+    },
+    "prompt_norm": {
+      "train|validation": 0,
+      "train|calibration": 0,
+      "train|test": 0,
+      "validation|calibration": 0,
+      "validation|test": 0,
+      "calibration|test": 0
+    }
+  },
+  "descriptive": {
+    "old_answer_qid": {
+      "train|validation": 122,
+      "train|calibration": 80,
+      "train|test": 107,
+      "validation|calibration": 23,
+      "validation|test": 26,
+      "calibration|test": 32
+    },
+    "new_answer_qid": {
+      "train|validation": 89,
+      "train|calibration": 73,
+      "train|test": 87,
+      "validation|calibration": 14,
+      "validation|test": 25,
+      "calibration|test": 19
+    }
+  },
+  "violations": [],
+  "adjacent_transitions_same_subject_crossing": 0,
+  "PASS": true
+}

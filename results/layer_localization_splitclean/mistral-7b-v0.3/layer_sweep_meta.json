@@ -1,0 +1,18 @@
+{
+  "model": "mistral-7b-v0.3",
+  "ell_star": 30,
+  "alpha": 4.0,
+  "eval_layers": [
+    3,
+    16,
+    18,
+    30,
+    31
+  ],
+  "plateau05": [
+    18,
+    31
+  ],
+  "runtime_sec": 137.7,
+  "device": "cuda:0"
+}

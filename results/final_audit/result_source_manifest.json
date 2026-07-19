@@ -1,0 +1,158 @@
+{
+  "provenance": {
+    "split_manifest": {
+      "path": "results/splits/subject_disjoint_v1.json",
+      "sha256": "b263c324dc3a1d44af9775a6ed1bb6734f151f7bf72b00d0e9a411cbd3c10015"
+    },
+    "benchmark": {
+      "path": "/home/elias/elias_projects/tas_framework/data/large/combined_all.jsonl",
+      "sha256": "ad75be4ed3cfefc474e4cf743814f8dd31fee1088531e3fc57c26ab8698fcf0b",
+      "record_count": 8746
+    },
+    "split_seed": 20260712,
+    "benchmark_audit_seed": 20260711,
+    "models": [
+      "qwen-2.5-1.5b",
+      "qwen-2.5-7b",
+      "mistral-7b-v0.3",
+      "llama-3.1-8b"
+    ],
+    "model_revisions": {
+      "qwen-2.5-1.5b": "8faed761d45a263340a0528343f099c05c9a4323",
+      "qwen-2.5-7b": "d149729398750b98c0af14eb82c78cfe92750796",
+      "mistral-7b-v0.3": "caa1feb0e54d415e2df31207e5f4e273e33509b1",
+      "llama-3.1-8b": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"
+    }
+  },
+  "results": {
+    "filtered_ptc_at_tau_-3.0": {
+      "value": {
+        "qwen-2.5-1.5b": {
+          "filtered_ptc": "101",
+          "kept": "2466",
+          "kept_frac": "0.282",
+          "fptc_rate_among_kept": "0.041",
+          "raw_ptc": "209"
+        },
+        "qwen-2.5-7b": {
+          "filtered_ptc": "248",
+          "kept": "3484",
+          "kept_frac": "0.3984",
+          "fptc_rate_among_kept": "0.0712",
+          "raw_ptc": "318"
+        },
+        "mistral-7b-v0.3": {
+          "filtered_ptc": "481",
+          "kept": "5649",
+          "kept_frac": "0.6459",
+          "fptc_rate_among_kept": "0.0851",
+          "raw_ptc": "523"
+        },
+        "llama-3.1-8b": {
+          "filtered_ptc": "597",
+          "kept": "5781",
+          "kept_frac": "0.661",
+          "fptc_rate_among_kept": "0.1033",
+          "raw_ptc": "641"
+        }
+      },
+      "source": "results/tau_rec_sensitivity/filter_sweep_all_models.csv",
+      "status": "diagnostic (full benchmark)",
+      "generating_script": "scripts/analyze_tau_rec_sensitivity.py"
+    },
+    "date_prefix_recovery": {
+      "value": {
+        "qwen-2.5-1.5b": {
+          "date_prefix_recovery": 0.6138613861386139,
+          "n_ptc": 101
+        },
+        "qwen-2.5-7b": {
+          "date_prefix_recovery": 0.782258064516129,
+          "n_ptc": 248
+        },
+        "mistral-7b-v0.3": {
+          "date_prefix_recovery": 0.7941787941787942,
+          "n_ptc": 481
+        },
+        "llama-3.1-8b": {
+          "date_prefix_recovery": 0.8053691275167785,
+          "n_ptc": 596
+        }
+      },
+      "source": "results/baselines/<model>/prompt_baselines.json",
+      "status": "diagnostic (full verified-PTC set)",
+      "generating_script": "scripts/run_baselines_controls.py"
+    },
+    "tas_oracle_recovery_fulldata": {
+      "value": {
+        "llama-3.1-8b": {
+          "alpha_star": 6.0,
+          "n": 597,
+          "recovery": 0.38190954773869346,
+          "source": "results/tas/llama-3.1-8b/oracle_tas_relation.json"
+        },
+        "mistral-7b-v0.3": {
+          "alpha_star": 6.0,
+          "n": 481,
+          "recovery": 0.29313929313929316,
+          "source": "results/tas/mistral-7b-v0.3/oracle_tas_relation.json"
+        },
+        "qwen-2.5-1.5b": {
+          "alpha_star": 2.0,
+          "n": 101,
+          "recovery": 0.5148514851485149,
+          "source": "results/tas/qwen-2.5-1.5b/oracle_tas_relation.json"
+        },
+        "qwen-2.5-7b": {
+          "alpha_star": 2.0,
+          "n": 248,
+          "recovery": 0.6169354838709677,
+          "source": "results/tas/qwen-2.5-7b/oracle_tas_relation.json"
+        }
+      },
+      "source": "results/tas/<model>/oracle_tas_relation.json (by_alpha[alpha_star].ptc.recovery_after)",
+      "status": "diagnostic (full verified-PTC set)",
+      "note": "abstract 29-62% range"
+    },
+    "random_direction_control": {
+      "value": {
+        "qwen-2.5-1.5b": {
+          "recovery": 0.25742574257425743,
+          "pa": null
+        },
+        "qwen-2.5-7b": {
+          "recovery": 0.1774193548387097,
+          "pa": null
+        },
+        "mistral-7b-v0.3": {
+          "recovery": 0.24116424116424118,
+          "pa": null
+        },
+        "llama-3.1-8b": {
+          "recovery": 0.31208053691275167,
+          "pa": null
+        }
+      },
+      "source": "results/baselines/<model>/steering_controls.json",
+      "status": "diagnostic (full verified-PTC set)"
+    },
+    "tas_vs_iti_heldout": {
+      "value_source": "results/iti_paired/paired_significance.json",
+      "status": "HELD-OUT subject-disjoint test",
+      "generating_script": "scripts/analyze_paired_iti.py",
+      "note": "Recovery: no Holm-significant difference on any model. PA: only qwen-2.5-1.5b Holm-significant (ITI>TAS, p=0.006)."
+    },
+    "detector_corrected": {
+      "value_source": "results/detector_splitclean/summary.{json,csv}",
+      "status": "HELD-OUT subject-disjoint (true base rate)",
+      "generating_script": "scripts/recompute_detector_splitclean.py",
+      "note": "corrected AUROC 0.47-0.66, AUPRC 0.028-0.097; qwen-2.5-1.5b AUROC 0.467 (below chance). LEGACY leaked AUPRC 0.258-0.525 must NOT be cited as current."
+    },
+    "benchmark_manual_audit": {
+      "status": "unreviewed",
+      "sample_size": 200,
+      "source": "results/benchmark_audit/audit_sample.csv",
+      "note": "UNREVIEWED as of this audit; quantitative accuracy removed from paper (non-quantitative description substituted)."
+    }
+  }
+}

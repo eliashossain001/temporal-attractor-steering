@@ -1,0 +1,5 @@
+model,rel_P6,rel_P35,rel_P169,rel_P286,rel_P488,dom_politics,dom_corporate_leadership,dom_sports
+qwen-2.5-1.5b,31,6,1,11,15,37,16,11
+qwen-2.5-7b,63,14,9,31,32,77,41,31
+mistral-7b-v0.3,103,19,12,89,67,122,79,89
+llama-3.1-8b,133,25,14,111,90,158,104,111

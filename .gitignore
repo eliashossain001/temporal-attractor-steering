@@ -25,3 +25,7 @@ hf_cache/
 .vscode/
 .idea/
 .DS_Store
+
+# Timestamped local backups
+*.bak
+*.bak.*

@@ -1,0 +1,21 @@
+# Position-holder extraction for {PID} ({RELATION LABEL}).
+# Extracts every holder statement (value + start P580 + end P582 + rank) with
+# English labels. Deprecated-rank statements are excluded; preferred and normal
+# ranks are BOTH returned (rank is emitted so downstream logic can prefer the
+# highest rank per (subject, time) if needed). Missing P580/P582 are returned as
+# unbound and are rejected downstream (MISSING_TIME_BOUNDARY). Consecutive
+# (old->new) transitions and the deterministic admission rules are built in
+# scripts/build_verification_manifest.py.
+SELECT ?subject ?subjectLabel ?holder ?holderLabel ?start ?end ?rank
+WHERE {
+  ?subject p:{PID} ?stmt .
+  ?stmt ps:{PID} ?holder .
+  ?stmt wikibase:rank ?rank .
+  FILTER(?rank != wikibase:DeprecatedRank)
+  OPTIONAL { ?stmt pq:P580 ?start . }   # statement start time
+  OPTIONAL { ?stmt pq:P582 ?end . }     # statement end time
+  # English labels only; items without an English label for the holder are
+  # rejected downstream (MISSING_ENGLISH_LABEL).
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en" . }
+}
+ORDER BY ?subject ?start

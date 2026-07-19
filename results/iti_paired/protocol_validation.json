@@ -1,0 +1,15 @@
+{
+  "generated_utc": "2026-07-12T01:56:23.357086+00:00",
+  "split_manifest_sha256": "ad75be4ed3cfefc474e4cf743814f8dd31fee1088531e3fc57c26ab8698fcf0b",
+  "checks": {
+    "subjects_disjoint_train_validation": true,
+    "subjects_disjoint_train_calibration": true,
+    "subjects_disjoint_train_test": true,
+    "subjects_disjoint_validation_calibration": true,
+    "subjects_disjoint_validation_test": true,
+    "subjects_disjoint_calibration_test": true,
+    "validation_controls_in_split": true,
+    "test_controls_in_split": true
+  },
+  "PASS": true
+}

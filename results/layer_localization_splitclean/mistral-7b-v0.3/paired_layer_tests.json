@@ -1,0 +1,34 @@
+{
+  "3": {
+    "vs_ell_star": 30,
+    "recovery_ellstar_minus_layer": -0.1268,
+    "rec_discordant_star/layer": "2/11",
+    "rec_mcnemar_p": 0.0224609375,
+    "pa_discordant_star/layer": "19/5",
+    "pa_mcnemar_p": 0.006610751152038574
+  },
+  "16": {
+    "vs_ell_star": 30,
+    "recovery_ellstar_minus_layer": -0.1127,
+    "rec_discordant_star/layer": "1/9",
+    "rec_mcnemar_p": 0.021484375,
+    "pa_discordant_star/layer": "17/4",
+    "pa_mcnemar_p": 0.007197380065917969
+  },
+  "18": {
+    "vs_ell_star": 30,
+    "recovery_ellstar_minus_layer": -0.1127,
+    "rec_discordant_star/layer": "1/9",
+    "rec_mcnemar_p": 0.021484375,
+    "pa_discordant_star/layer": "20/3",
+    "pa_mcnemar_p": 0.00048828125
+  },
+  "31": {
+    "vs_ell_star": 30,
+    "recovery_ellstar_minus_layer": -0.0423,
+    "rec_discordant_star/layer": "2/5",
+    "rec_mcnemar_p": 0.453125,
+    "pa_discordant_star/layer": "5/7",
+    "pa_mcnemar_p": 0.7744140625
+  }
+}

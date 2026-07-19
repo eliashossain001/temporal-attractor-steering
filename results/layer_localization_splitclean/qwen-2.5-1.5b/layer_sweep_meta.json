@@ -1,0 +1,18 @@
+{
+  "model": "qwen-2.5-1.5b",
+  "ell_star": 23,
+  "alpha": 2.0,
+  "eval_layers": [
+    2,
+    20,
+    22,
+    23,
+    27
+  ],
+  "plateau05": [
+    22,
+    27
+  ],
+  "runtime_sec": 72.3,
+  "device": "cuda:0"
+}

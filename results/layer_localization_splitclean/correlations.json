@@ -1,0 +1,30 @@
+{
+  "qwen-2.5-1.5b": {
+    "spearman_afr_vs_steering_recovery": -0.671,
+    "p_value": 0.215,
+    "n_layers": 5,
+    "spearman_alignment_vs_recovery": 0.894,
+    "alignment_p": 0.041
+  },
+  "qwen-2.5-7b": {
+    "spearman_afr_vs_steering_recovery": -0.821,
+    "p_value": 0.089,
+    "n_layers": 5,
+    "spearman_alignment_vs_recovery": 0.975,
+    "alignment_p": 0.005
+  },
+  "mistral-7b-v0.3": {
+    "spearman_afr_vs_steering_recovery": -0.975,
+    "p_value": 0.005,
+    "n_layers": 5,
+    "spearman_alignment_vs_recovery": 0.975,
+    "alignment_p": 0.005
+  },
+  "llama-3.1-8b": {
+    "spearman_afr_vs_steering_recovery": 0.0,
+    "p_value": 1.0,
+    "n_layers": 4,
+    "spearman_alignment_vs_recovery": 0.0,
+    "alignment_p": 1.0
+  }
+}

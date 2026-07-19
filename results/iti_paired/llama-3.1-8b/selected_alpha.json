@@ -1,0 +1,26 @@
+{
+  "tas": {
+    "alpha": 6.0,
+    "val_recovery": 0.4175824175824176,
+    "val_pa": 0.775,
+    "val_J": 0.19258241758241762,
+    "tie_break": {
+      "tied_alphas": [
+        6.0
+      ],
+      "rule": "unique"
+    }
+  },
+  "iti": {
+    "alpha": 6.0,
+    "val_recovery": 0.4065934065934066,
+    "val_pa": 0.84,
+    "val_J": 0.24659340659340656,
+    "tie_break": {
+      "tied_alphas": [
+        6.0
+      ],
+      "rule": "unique"
+    }
+  }
+}

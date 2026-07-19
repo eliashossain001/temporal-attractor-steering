@@ -1,0 +1,18 @@
+{
+  "model": "mistral-7b-v0.3",
+  "hf_id": "mistralai/Mistral-7B-v0.3",
+  "layer": 30,
+  "alpha_tas": 4.0,
+  "alpha_iti": 8.0,
+  "max_new_tokens": 25,
+  "decoding": "greedy (do_sample=False, num_beams=1)",
+  "n_test_ptc": 71,
+  "n_control": 200,
+  "methods": [
+    "standard",
+    "date_prefix",
+    "instruction",
+    "tas",
+    "iti"
+  ]
+}

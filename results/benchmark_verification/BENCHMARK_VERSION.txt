@@ -1,0 +1,9 @@
+benchmark_v1_verified_20260712
+
+Documentation-only version update (Bucket 2). NO records changed.
+- 8,746 accepted records; per-relation P6:3583 P35:183 P169:208 P286:2391 P488:2381.
+- Every record passes every deterministic admission rule (verification_manifest.csv).
+- SPARQL queries released and validated live (data/benchmark_queries/).
+- Manual audit: 200-record stratified sample released; annotation PENDING (no precision reported).
+- benchmark sha256: ad75be4ed3cfefc474e4cf743814f8dd31fee1088531e3fc57c26ab8698fcf0b
+Because no record changed, no downstream result requires regeneration.

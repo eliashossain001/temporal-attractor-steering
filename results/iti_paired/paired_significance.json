@@ -1,0 +1,160 @@
+{
+  "recovery": {
+    "qwen-2.5-1.5b": {
+      "n": 32,
+      "tas_recovery": 0.46875,
+      "tas_recovery_ci": [
+        0.3125,
+        0.6257812499999886
+      ],
+      "iti_recovery": 0.40625,
+      "iti_recovery_ci": [
+        0.25,
+        0.5625
+      ],
+      "paired_diff_tas_minus_iti": 0.0625,
+      "tas_wins_iti_fails": 5,
+      "iti_wins_tas_fails": 3,
+      "discordant": 8,
+      "mcnemar_p_raw": 0.7265625,
+      "mcnemar_p_holm": 1.0
+    },
+    "qwen-2.5-7b": {
+      "n": 39,
+      "tas_recovery": 0.5384615384615384,
+      "tas_recovery_ci": [
+        0.38461538461538464,
+        0.6923076923076923
+      ],
+      "iti_recovery": 0.5384615384615384,
+      "iti_recovery_ci": [
+        0.38461538461538464,
+        0.6923076923076923
+      ],
+      "paired_diff_tas_minus_iti": 0.0,
+      "tas_wins_iti_fails": 2,
+      "iti_wins_tas_fails": 2,
+      "discordant": 4,
+      "mcnemar_p_raw": 1.0,
+      "mcnemar_p_holm": 1.0
+    },
+    "mistral-7b-v0.3": {
+      "n": 71,
+      "tas_recovery": 0.323943661971831,
+      "tas_recovery_ci": [
+        0.22535211267605634,
+        0.43661971830985913
+      ],
+      "iti_recovery": 0.38028169014084506,
+      "iti_recovery_ci": [
+        0.2676056338028169,
+        0.49295774647887325
+      ],
+      "paired_diff_tas_minus_iti": -0.056338028169014065,
+      "tas_wins_iti_fails": 6,
+      "iti_wins_tas_fails": 10,
+      "discordant": 16,
+      "mcnemar_p_raw": 0.454498291015625,
+      "mcnemar_p_holm": 1.0
+    },
+    "llama-3.1-8b": {
+      "n": 87,
+      "tas_recovery": 0.3563218390804598,
+      "tas_recovery_ci": [
+        0.25287356321839083,
+        0.45977011494252873
+      ],
+      "iti_recovery": 0.28735632183908044,
+      "iti_recovery_ci": [
+        0.19540229885057472,
+        0.3793103448275862
+      ],
+      "paired_diff_tas_minus_iti": 0.06896551724137934,
+      "tas_wins_iti_fails": 19,
+      "iti_wins_tas_fails": 13,
+      "discordant": 32,
+      "mcnemar_p_raw": 0.37708558747544885,
+      "mcnemar_p_holm": 1.0
+    }
+  },
+  "preservation": {
+    "qwen-2.5-1.5b": {
+      "n": 200,
+      "tas_pa": 0.82,
+      "tas_pa_ci": [
+        0.765,
+        0.87
+      ],
+      "iti_pa": 0.895,
+      "iti_pa_ci": [
+        0.85,
+        0.935
+      ],
+      "paired_diff_tas_minus_iti": -0.07500000000000007,
+      "tas_wins_iti_fails": 3,
+      "iti_wins_tas_fails": 18,
+      "discordant": 21,
+      "mcnemar_p_raw": 0.0014896392822265625,
+      "mcnemar_p_holm": 0.00595855712890625
+    },
+    "qwen-2.5-7b": {
+      "n": 200,
+      "tas_pa": 0.795,
+      "tas_pa_ci": [
+        0.74,
+        0.85
+      ],
+      "iti_pa": 0.845,
+      "iti_pa_ci": [
+        0.795,
+        0.895
+      ],
+      "paired_diff_tas_minus_iti": -0.04999999999999993,
+      "tas_wins_iti_fails": 8,
+      "iti_wins_tas_fails": 18,
+      "discordant": 26,
+      "mcnemar_p_raw": 0.07551869750022888,
+      "mcnemar_p_holm": 0.22655609250068665
+    },
+    "mistral-7b-v0.3": {
+      "n": 200,
+      "tas_pa": 0.85,
+      "tas_pa_ci": [
+        0.8,
+        0.8951249999999982
+      ],
+      "iti_pa": 0.83,
+      "iti_pa_ci": [
+        0.775,
+        0.88
+      ],
+      "paired_diff_tas_minus_iti": 0.020000000000000018,
+      "tas_wins_iti_fails": 15,
+      "iti_wins_tas_fails": 11,
+      "discordant": 26,
+      "mcnemar_p_raw": 0.557197093963623,
+      "mcnemar_p_holm": 0.557197093963623
+    },
+    "llama-3.1-8b": {
+      "n": 200,
+      "tas_pa": 0.785,
+      "tas_pa_ci": [
+        0.725,
+        0.84
+      ],
+      "iti_pa": 0.835,
+      "iti_pa_ci": [
+        0.785,
+        0.885
+      ],
+      "paired_diff_tas_minus_iti": -0.04999999999999993,
+      "tas_wins_iti_fails": 12,
+      "iti_wins_tas_fails": 22,
+      "discordant": 34,
+      "mcnemar_p_raw": 0.12144948495551944,
+      "mcnemar_p_holm": 0.24289896991103888
+    }
+  },
+  "holm_family_size": 4,
+  "note": "Holm correction applied separately across the 4 models for Recovery and for PA. Alpha selected on validation only; test evaluated once. Effect sizes and discordant counts reported alongside p-values."
+}

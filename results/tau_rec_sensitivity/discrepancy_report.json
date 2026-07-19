@@ -1,0 +1,6 @@
+{
+  "cells_checked": 40,
+  "discrepancies": [],
+  "all_match": true,
+  "note": "Existing supplement tab:tau-rec-sweep regenerated from cached phase-1 scores; every cell matches (rate to 3dp, kept% to 1dp). Denominator = filtered PTC / kept records (definition B)."
+}
